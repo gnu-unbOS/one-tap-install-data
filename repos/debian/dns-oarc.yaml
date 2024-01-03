@@ -1,0 +1,80 @@
+---
+.dns-oarc-common: &dns-oarc-common
+  description: Domain Name System Operations Analysis and Research Center Repository
+  source: 
+    Types: deb
+    URIs: http://pkg.dns-oarc.net/stable/<SUITE>
+    Suites: <SUITE>
+    Components: main
+    Architectures: amd64 i386
+  suites:
+  - sid
+  - buster
+  - bullseye
+  - bookworm
+  policy: main
+  gpg-key: |
+    -----BEGIN PGP PUBLIC KEY BLOCK-----
+    Version: GnuPG v1
+    
+    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
+    bVkVjVvk0llgQ3uvzX6mlploJE+kBqVxNA==
+    =dRVg
+    -----END PGP PUBLIC KEY BLOCK-----
+
+dns-oarc:
+  <<: *dns-oarc-common
+
+dns-oarc-prerelease:
+  <<: *dns-oarc-common
+  source: 
+    URIs: http://pkg.dns-oarc.net/prerelease/<SUITE>
+  suites:
+  - sid
+  - bookworm
+  - trixie

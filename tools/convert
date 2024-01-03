@@ -1,0 +1,42 @@
+#!/usr/bin/perl -w
+
+use strict;
+use warnings;
+
+use TOML;
+use YAML::XS qw/Load Dump/;
+
+die "need two filenames!\n" unless defined($ARGV[1]);
+
+my $from = $ARGV[0];
+my $to = $ARGV[1];
+
+my $unparsed;
+
+open my $input, "<$from";
+while(<$input>) {
+	$unparsed .= $_;
+}
+close $input;
+
+my $data;
+
+if($from =~ /\.yaml$/) {
+	$data = Load($unparsed);
+} elsif ($from =~ /\.toml$/) {
+	$data = from_toml($unparsed);
+} else {
+	...
+}
+
+if($to =~ /\.yaml$/) {
+	$unparsed = Dump($data);
+} elsif ($to =~ /\.toml$/) {
+	$unparsed = to_toml($data);
+} else {
+	...
+}
+
+open my $output, ">$to";
+print $output $unparsed;
+close $output;

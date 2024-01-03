@@ -1,0 +1,24 @@
+{
+  "feistermops": {
+    "bugs": "mailto:t.glaser@tarent.de",
+    "contact": "t.glaser@tarent.de",
+    "description": "Feistermops repository: contains .deb packages shipping coïnstallable, runnable-in-parallel official Mozilla™ Firefox™ binaries; see http://mops.tarent.de/debidx.htm for a browsable repository index (and ignore that the suite is called “hardy”, that’s historic)",
+    "gpg-key": "-----BEGIN PGP PUBLIC KEY BLOCK-----\n\n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\nOxW21QxhvbmrhP11qh1lMFniWb0=\n=BxjR\n-----END PGP PUBLIC KEY BLOCK-----\n",
+    "policy": "non-free",
+    "source": {
+      "Architectures": "i386",
+      "Components": "tarent",
+      "Suites": "hardy",
+      "Types": "deb",
+      "URIs": "http://mops.tarent.de/"
+    },
+    "suites": [
+      "buster",
+      "jessie",
+      "sid",
+      "stretch",
+      "testing",
+      "wheezy"
+    ]
+  }
+}

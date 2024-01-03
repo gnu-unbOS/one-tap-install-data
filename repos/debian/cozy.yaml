@@ -1,0 +1,41 @@
+---
+cozy:
+  description: All your data in one place your smart digital home
+  source: 
+    Types: deb
+    URIs: https://apt.cozy.io/debian/
+    Suites: <SUITE>
+    Components: stable
+    Architectures: amd64 arm64 armhf
+  suites:
+  - buster
+  policy: main
+  gpg-key: |
+    -----BEGIN PGP PUBLIC KEY BLOCK-----
+    
+    mQINBFnLvc8BEAC1WY5i4PGkIZWy6faNcCv3kjfm1tZ4lbbs0TnMOCvSVa58m8aq
+    OSUIam49eiB1M6C+TQlwbyBPR5ZgnrlhiN9R5IOy3Ol0Qr8RnhJqJGVDst/Hayub
+    hFOrPUMuLKlNTkU0mZaNzB3I3RFoVk1w4iWdythz+MTKbu6yJf9NSmgPNB7WlPTx
+    bg4CRafKzzCg8fSZ0TAw+9+uH0aXiKFiJ2KWcvHPSEHHV/GzkSkxgFHRoYfcrliV
+    4VNFaqKzp0HWeRn0UIe8HTAf8BQ0Tgy0mGzZkNR81ufUK4Mhncqh4z6uoidopytj
+    AOZMMLL+ESkosCQu/UPtPt8jRMSD1wKYUKLzyMSrNsmzi5L0P+HH3SynWUDny08p
+    i9t5pERt3yFInRI1o/DAPqGn4H372hUQ4HWesK3wNXycvjBOH0Fk9sPvtSLVU5XM
+    JQoj989+GeGd6aMltTSEEchNbgDKUfoX3Y7uTIgAn8Schfg73rsmHD45he+1bs2I
+    2v86raGOsfwWiSz4iyGqIMH3iaENPJuB6wHmIrFu/JOgpAm4UcIt1lrowMR4MDUb
+    swrBCqYkO/gox8jNczZQRzawWMZTPJwZYACMepNA4BVEXhhRZmGvziTqlL2CMuMx
+    nyrwOTR25lv3pIjU4jONoD5ZPKvNBWzT0Wa2vmF6ZnofvHmAR0c26WMIEwARAQAB
+    tBdDb3p5IERlYmlhbiBzaWduaW5nIGtleYkCUgQTAQoAPAIbAwQLCQgHBBUKCQgF
+    FgIDAQACHgECF4AWIQS0QHLr3hT8go9p8gZR9ytqRdQLvgUCX6ldwgUJCASy8wAK
+    CRBR9ytqRdQLvtUdEACSZ0jfyNXLNUxolz0szD/KfLR/49O1gq2l9unfNiTdaitL
+    kDndGSlGRADxt84rsZYaeHQveI90+JuGPkqReFxyleOPmdHqSs9vJmMX3w1M2DYo
+    CeZ6tU92oClaySfQ7WYlHcR1bPZdBgHsxeuuJFqEXycGKCzqZYX3I7nqvLrjsBLq
+    PFTYMFSCqHT3XxeNU+IxQywFicq4EwnTmnGs7H2YmP+6slpCnp/gD/fDMQMAa3H1
+    +mDOr/IMeirMoRu3DdMmj0uyOHiUCwLe723YtEXeUTdpqBWd5ELUc3c7IfwNv/w2
+    Qc0M2kWu8rimts6Yq9cLqMV9ijWUKSbeAN1fN6mvFyfi3d8FdHbExX3eSREdwJql
+    D7xct5SwZ1cNGs17BddwS1Os3MnwC6y/NPb4jAdBPO8291mHRfNS+4fi3VRlGwuA
+    Mckk00scqutGAg4CwDNaGZlJjK5/VJ0E1q+4+JSwcQvo4twlLJk2WLXvO/yzivtG
+    PrqB3O+43FTC9g2CSpQv0pTL/zWDzfoXC5pfw8fc0zGCQOGjJqlRSx1LupN6nNIg
+    MOYSqPlHDlcMmCIo/U2rAcT4FaBjtCtwW05bXCaaJp7Hosj7dFzo0Ze5bi9TiOyI
+    l3lLIAWK1uN5YAyK4lSZcI3S0V/z4eaDlendHKuQa7kRqwqNQbovcepeKO2bKQ==
+    =A6vY
+    -----END PGP PUBLIC KEY BLOCK-----

@@ -1,0 +1,102 @@
+#!/usr/bin/perl -w
+
+use strict;
+use warnings;
+
+use File::Basename;
+use YAML::XS qw/LoadFile/;
+
+use lib join("/", dirname($0), "lib");
+
+use ExtRepoData;
+
+my $repos = {};
+while(defined($ARGV[0])) {
+	my $filedata = LoadFile(shift);
+	foreach my $key(keys %$filedata) {
+		next if $key =~ /^\./;
+		die "duplicate repository name $key" if exists($repos->{$key});
+		$repos->{$key} = $filedata->{$key};
+	}
+}
+
+my %keys = (
+	description => { ref => "", req => 1 },
+	source => { ref => "HASH", req => 1 },
+	suites => { ref => "ARRAY", req => 1 },
+	components => { ref => "ARRAY", req => 0 },
+	policies => { ref => "HASH", req => 0 },
+	policy => { ref => "", req => 0 },
+	contact => { ref => "", req => 0 },
+	bugs => { ref => "", req => 0 },
+	"gpg-key" => { ref => "", req => 1 },
+	"onion-URIs" => { ref => "", req => 0 },
+	Disabled => { ref => "", req => 0 },
+);
+
+# These options mess with secure apt, and MUST NOT be used.
+# Signed-By is added because it is managed by extrepo, and will be
+# overridden if used.
+my %forbidden = (
+	"allow-insecure" => 1,
+	"allow-weak" => 1,
+	"allow-downgrade-to-insecure" => 1,
+	"check-valid-until" => 1,
+	"check-date" => 1,
+	"trusted" => 1,
+	"signed-by" => 1,
+);
+
+foreach my $repo(sort(keys %$repos)) {
+	my @component_keys = ( "components" );
+	print STDERR "Checking repository $repo...\n";
+	die "Invalid repository name $repo!" unless $repo =~ /^[a-z0-9_.-]+$/;
+	tie my(%hash), 'ExtRepoData', $repos->{$repo};
+	$repos->{$repo} = \%hash;
+	my $have_components = 0;
+	foreach my $topkey(keys %{$repos->{$repo}}) {
+		if($topkey =~ /suite-[^-]+-components/) {
+			$have_components = 1;
+			push @component_keys, $topkey;
+			next;
+		}
+		die "invalid key $topkey" unless exists($keys{$topkey});
+		die "invalid type of key $topkey" unless ref($repos->{$repo}{$topkey}) eq $keys{$topkey}{ref};
+	}
+	if($have_components || exists($repos->{$repo}{components})) {
+		$have_components = 1;
+		$keys{policies}{req} = 1;
+		$keys{policy}{req} = 0;
+	} else {
+		$keys{policies}{req} = 0;
+		$keys{policy}{req} = 1;
+	}
+	foreach my $reqd(keys %keys) {
+		next unless $keys{$reqd}{req};
+		die "missing required key $reqd" unless exists($repos->{$repo}{$reqd});
+	}
+	if($have_components) {
+		foreach my $comp_key(@component_keys) {
+			foreach my $component(@{$repos->{$repo}{$comp_key}}) {
+				die "no policy found for component $component" unless exists($repos->{$repo}{policies}{$component});
+			}
+		}
+	}
+	my $types_found = 0;
+	foreach my $src(keys %{$repos->{$repo}{source}}) {
+		my $srcl = lc($src);
+		if($srcl =~ /suite-[^-]*-(.*)/) {
+			$srcl = $1;
+		}
+		die "forbidden source option $src found" if exists($forbidden{$srcl});
+		if(ref($repos->{$repo}{source}{$src} ne "")) {
+			die "$repo:source:$src is not a scalar";
+		}
+		if ($srcl eq "types") {
+			$types_found = 1;
+			my $types_val = $repos->{$repo}{source}{$src};
+			die "wrong value for source Types option: $types_val" if $types_val ne "deb" and $types_val ne "deb deb-src";
+		}
+	}
+	die "source is missing Types option" if (!$types_found);
+}

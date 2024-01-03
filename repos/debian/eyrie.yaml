@@ -1,0 +1,86 @@
+---
+eyrie:
+  description: "Russ Allbery's personal repository"
+  source:
+    Types: deb deb-src
+    URIs: https://archives.eyrie.org/debian
+    Suites: <SUITE>
+    Components: <COMPONENTS>
+    Architectures: amd64 i386
+
+  suites:
+    - wheezy
+    - jessie
+    - stretch
+    - buster
+    - bullseye
+    - bookworm
+    - sid
+
+  components:
+    - main
+    - contrib
+    - non-free
+
+  policies:
+    main: main
+    contrib: contrib
+    non-free: non-free
+
+  contact: rra@debian.org
+  bugs: "mailto:rra@debian.org"
+
+  gpg-key: |
+    -----BEGIN PGP PUBLIC KEY BLOCK-----
+
+    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
+    =zK+j
+    -----END PGP PUBLIC KEY BLOCK-----

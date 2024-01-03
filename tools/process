@@ -1,0 +1,102 @@
+#!/usr/bin/perl -w
+
+use strict;
+use warnings;
+
+use File::Basename;
+use YAML::XS qw/LoadFile DumpFile/;
+use Crypt::Digest::SHA256 qw/sha256_hex/;
+
+use lib join("/", dirname($0), "lib");
+
+use ExtRepoData;
+
+my %required = (
+	deb => 1,
+	description => 1,
+);
+my @files = glob("repos/debian/*.yaml");
+my %dists = ( debian => {} );
+my %ancillary = ( debian => {} );
+foreach my $file(@files) {
+	my $data = LoadFile($file);
+	foreach my $repo(keys %$data) {
+		next if $repo =~ /^\./;
+		next if exists($data->{$repo}{Disabled});
+		tie my (%hash), 'ExtRepoData', $data->{$repo};
+		$data->{$repo} = \%hash;
+		die "missing suites in repository $repo!\n" unless exists($data->{$repo}{suites});
+		foreach my $suite_o(@{$data->{$repo}{suites}}) {
+			my $suite = new ExtRepoData::Suite($suite_o);
+			$dists{debian}{$suite} = {} unless exists($dists{debian}{$suite});
+			$ancillary{debian}{$suite} = {} unless exists($ancillary{debian}{$suite});
+			$dists{debian}{$suite}{$repo} = {};
+			$dists{debian}{$suite}{$repo}{"gpg-key-checksum"} = { sha256 => sha256_hex($data->{$repo}{"gpg-key"}) };
+			$ancillary{debian}{$suite}{$repo} = {};
+			$ancillary{debian}{$suite}{$repo}{"gpg-key"} = $data->{$repo}{"gpg-key"};
+			my $vers = ExtRepoData::Suite::version_of($suite_o);
+			foreach my $key(keys(%{$data->{$repo}{source}})) {
+				my $targetkey = $key;
+				if($key =~ /^suite-.*/) {
+					next unless $key =~ /^suite-$suite-(.*)$/;
+					$targetkey = $1;
+				} else {
+					next if exists($dists{debian}{$suite}{$repo}{source}{$targetkey});
+				}
+				my $value = $data->{$repo}{source}{$key};
+				$value =~ s/<SUITE>/$suite_o/g;
+				$value =~ s/<VERSION>/$vers/g;
+				$dists{debian}{$suite}{$repo}{source}{$targetkey} = $value;
+			}
+			foreach my $key(qw/components policies policy contact description/) {
+				next unless exists($data->{$repo}{$key});
+				my $value = $data->{$repo}{$key};
+				$value =~ s/<SUITE>/$suite_o/g;
+				$value =~ s/<VERSION>/$vers/g;
+				$dists{debian}{$suite}{$repo}{$key} = $value;
+			}
+			if(exists($data->{$repo}{"suite-$suite-components"})) {
+				my $value = $data->{$repo}{"suite-$suite-components"};
+				$value =~ s/<SUITE>/$suite_o/g;
+				$value =~ s/<VERSION>/$vers/g;
+				$dists{debian}{$suite}{$repo}{components} = $value;
+			}
+			$dists{debian}{$suite}{$repo}{"gpg-key-file"} = "$repo.asc";
+		}
+	}
+}
+
+mkdir "public";
+
+sub create_index {
+	my $dir = shift;
+
+	open my $file, ">", "public/$dir/index.html" or die $!;
+	my $base = basename($dir);
+	$base = "/" if($base eq ".");
+	print $file "<html><head><title>extrepo data: $base index</title></head><body>";
+	foreach my $entry(sort(glob "public/$dir/*")) {
+		my $ebase = basename($entry);
+		print $file "<a href=\"$ebase\">$ebase</a><br>\n";
+		if(-d $entry) {
+			create_index(join("/", $dir, $ebase));
+		}
+	}
+	print $file "</body></html>\n";
+	close $file;
+}
+
+foreach my $dist(keys %dists) {
+	mkdir "public/$dist";
+	foreach my $suite(keys %{$dists{$dist}}) {
+		mkdir "public/$dist/$suite";
+		DumpFile("public/$dist/$suite/index.yaml", $dists{$dist}{$suite});
+		foreach my $repo(keys %{$dists{$dist}{$suite}}) {
+			open my $fh, ">public/$dist/$suite/$repo.asc";
+			print $fh $ancillary{$dist}{$suite}{$repo}{"gpg-key"};
+			close $fh;
+		}
+	}
+}
+
+create_index(".");

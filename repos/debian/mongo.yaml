@@ -1,0 +1,72 @@
+---
+mongodb:
+  description: mongodb NoSQL database Repository
+  source: 
+    Types: deb
+    URIs: http://repo.mongodb.org/apt/debian
+    Suites: <SUITE>/mongodb-org/7.0
+    Components: main
+    Architectures: amd64 arm64
+  suites:
+  - buster
+  - bullseye
+  policy: main
+  gpg-key: |
+    -----BEGIN PGP PUBLIC KEY BLOCK-----
+
+    mQINBGAsKNUBEAClMqPCvvqm6gFmbiorEN9qp00GI8oaECkwbxtGGbqX9sqMSrKe
+    AB3sGI7kqG2Fl0K+xmmiq1QDjhNgFDA1jjXq+Bd66RNPtvu747IRxVs+9fX7bk67
+    8Bruha7U3M5l4193x5oYLlbcZL9aC7RSJE2mggTyS6LarmF6vKQN9LMXDicnageV
+    KCPpF2i3jkZaGnLPzAisW/pOjPQpWCbatTVqKOKvtOyP3Fz1spYd4obu6ELu1PXa
+    gmhSfvWJYt1irpchOl29LWZfcmXuJszmb00bqm4gLcK12VrnK191iXv46A8h2hSO
+    f3eQqrkc+pF/kw4RyG54EV7QtHXyTe9TVCbJUfgtliWIQt/bCoJYfPLHJaWIMs83
+    bzA6ZvOjCKIfMS0CY5ZJyVaBfiI3wURSjgZIYFZAXVwbreQIfOKKuik7UVVn3xUO
+    nWpmQ2zyI0W7cJMquxwLNjkI+RckPhIqxWFo5iNSV4v6pzrlHD1WmIfFGBKEn7m+
+    edwVyHG53fNIFZjxyShO6Pf1vgb9Js/XmXB4lxYnNyx1tB+hQhXTjLlY6N5gPpw5
+    Z/PWQc7vfYekUZGQMXhTyRxU0QTwmdEeKcb+fb9r23OH59bbAfzE10xTMzhqCd2L
+    lgSozMBvMmkHb1xs1x6FFuv/U/X7LjHTrHIf4M//DNwdP4l4I1jhPlTAxwARAQAB
+    tDdNb25nb0RCIDUuMCBSZWxlYXNlIFNpZ25pbmcgS2V5IDxwYWNrYWdpbmdAbW9u
+    Z29kYi5jb20+iQI+BBMBAgAoBQJgLCjVAhsDBQkJZgGABgsJCAcDAgYVCAIJCgsE
+    FgIDAQIeAQIXgAAKCRCwCgvR4sY8EawdD/0ewkyx3yE99K9n3y7gdvh5+2U8BsqU
+    7SWEfup7kPpf+4pF5xWqMaciEV/wRAGt7TiKlfVyAv3Q9iNsaLFN+s3kMaIcKhwD
+    8+q/iGfziIuOSTeo20dAxn9vF6YqrKGc7TbHdXf9AtYuJCfIU5j02uVZiupx+P9+
+    rG39dEnjOXm3uY0Fv3pRGCpuGubDlWB1DYh0R5O481kDVGoMqBxmc3iTALu14L/u
+    g+AKxFYfT4DmgdzPVMDhppgywfyd/IOWxoOCl4laEhVjUt5CygBa7w07qdKwWx2w
+    gTd9U0KGHxnnSmvQYxrRrS5RX3ILPJShivTSZG+rMqnUe6RgCwBrKHCRU1L728Yv
+    1B3ZFJLxB1TlVT2Hjr+oigp0RY9W1FCIdO2uhb9GImpaJ1Y0ZZqUkt/d9D8U2wcw
+    SW6/6WYeO7wAi/zlJ25hrBwhxS2+88gM6wJ1yL9yrM9v8JUb7Kq0rCGsEO5kqscV
+    AmX90wsF2cZ6gHR53eGIDbAJK0MO5RHR73aQ4bpTivPnoTx4HTj5fyhW9z8yCSOe
+    BlQABoFFqFvOS7KBxoyIS3pxlDetWOSc6yQrvA1CwxnkB81OHNmJfWAbNbEtZkLm
+    xs2c8CIh2R81yi6HUzAaxyDH7mrThbwX3hUe/wsaD1koV91G6bDD4Xx3zpa9DG/O
+    HyB98+e983gslg==
+    =IQQF
+    -----END PGP PUBLIC KEY BLOCK-----
+    -----BEGIN PGP PUBLIC KEY BLOCK-----
+    
+    mQINBGPILWABEACqeWP/ktugdlWEyk7YTXo3n19+5Om4AlSdIyKv49vAlKtzCfMA
+    QkZq3mfvjXiKMuLnL2VeElAJQIYcPoqnHf6tJbdrNv4AX2uI1cTsvGW7YS/2WNwJ
+    C/+vBa4o+yA2CG/MVWZRbtOjkFF/W07yRFtNHAcgdmpIjdWgSnPQr9eIqLuWXIhy
+    H7EerKsba227Vd/HfvKnAy30Unlsdywy7wi1FupzGJck0TPoOVGmsSpSyIQu9A4Z
+    uC6TE/NcJHvaN0JuHwM+bQo9oWirGsZ1NCoVqSY8/sasdUc7T9r90MbUcH674YAR
+    8OKYVBzU0wch4VTFhfHZecKHQnZf+V4dmP9oXnu4fY0/0w3l4jaew7Ind7kPg3yN
+    hvgAkBK8yRAbSu1NOtHDNiRoHGEQFgct6trVOvCqHbN/VToLNtGk0rhKGOp8kuSF
+    OJ02PJPxF3/zHGP8n8khCjUJcrilYPqRghZC8ZWnCj6GJVg6WjwLi+hPwNMi8xK6
+    cjKhRW3eCy5Wcn73PzVBX9f7fSeFDJec+IfS47eNkxunHAOUMXa2+D+1xSWgEfK0
+    PClfyWPgLIXY2pGQ6v8l3A6P5gJv4o38/E1h1RTcO3H1Z6cgZLIORZHPyAj50SPQ
+    cjzftEcz56Pl/Cyw3eMYC3qlbABBgsdeb6KB6G5dkNxI4or3MgmxcwfnkwARAQAB
+    tDdNb25nb0RCIDcuMCBSZWxlYXNlIFNpZ25pbmcgS2V5IDxwYWNrYWdpbmdAbW9u
+    Z29kYi5jb20+iQI+BBMBAgAoBQJjyC1gAhsDBQkJZgGABgsJCAcDAgYVCAIJCgsE
+    FgIDAQIeAQIXgAAKCRAWDSa7F4W6OM+eD/sE7KbJyRNWyPCRTqqJXrXvyPqZtbFX
+    8sio0lQ8ghn4f7lmb7LnFroUsmBeWaYirM8O3b2+iQ9oj4GeR3gbRZsEhFXQfL54
+    SfrmG9hrWWpJllgPP7Six+jrzcjvkf1TENqw4jRP+cJhuihH1Gfizo9ktwwoN9Yr
+    m7vgh+focEEmx8dysS38ApLxKlUEfTsE9bYsClgqyY1yrt3v4IpGbf66yfyBHNgY
+    sObR3sngDRVbap7PwNyREGsuAFfKr/Dr37HfrjY7nsn3vH7hbDpSBh+H7a0b/chS
+    mM60aaG4biWpvmSC7uxA/t0gz+NQuC4HL+qyNPUxvyIO+TwlaXfCI6ixazyrH+1t
+    F7Bj5mVsne7oeWjRrSz85jK3Tpn9tj3Fa7PCDA6auAlPK8Upbhuoajev4lIydNd2
+    70yO0idm/FtpX5a8Ck7KSHDvEnXpN70imayoB4Fs2Kigi2BdZOOdib16o5F/9cx9
+    piNa7HotHCLTfR6xRmelGEPWKspU1Sm7u2A5vWgjfSab99hiNQ89n+I7BcK1M3R1
+    w/ckl6qBtcxz4Py+7jYIJL8BYz2tdreWbdzWzjv+XQ8ZgOaMxhL9gtlfyYqeGfnp
+    hYW8LV7a9pavxV2tLuVjMM+05ut/d38IkTV7OSJgisbSGcmycXIzxsipyXJVGMZt
+    MFw3quqJhQMRsA==
+    =gbRM
+    -----END PGP PUBLIC KEY BLOCK-----

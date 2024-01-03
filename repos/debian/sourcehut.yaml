@@ -1,0 +1,49 @@
+---
+sourcehut:
+  description: sourcehut is a collection of tools useful for software development
+  source: 
+    Types: deb deb-src
+    URIs: https://mirror.sr.ht/debian
+    Suites: <SUITE>
+    Components: main
+    Architectures: amd64 arm64
+
+  suites:
+  - sid
+
+  policy: main
+
+  contact: ~sircmpwn/sr.ht-dev@lists.sr.ht
+  bugs: https://todo.sr.ht/~sircmpwn/sr.ht
+
+  gpg-key: |
+    -----BEGIN PGP PUBLIC KEY BLOCK-----
+    
+    mQENBF0K1m0BCACWEcd8DtFCNAZHcmIH3c+MaluZJt9JwHQ7M4C0Dm2SDBqwIH5J
+    8+1k1M0x/nuDbQ5JsgpwKde5Z82/kxcBf8ZBa9qsnkN7q/ZXqKiMlh+BzOgoTItD
+    8aS3n+evb5YjCdVfZ/j4sp4/Kxezi30xoPSvg1X5let3+Bi0aHBhLRS1vIfCNWaX
+    k3+CSQUwt1PyoTFsHeGLxn4qJzOxxt/PRLkQaYDZhkUhIpeIE/1batLSyoH4a4iK
+    Hp6f7TVjQ/OZYHAlRLudNu4/ddCnc4ykzY1GD5RNFd1/LFQ5gAwTx3yjG1aO7431
+    JhFUwmS/xkh1u/c4OLUh0Kt2JDE4f+uBMiTpABEBAAG0H1NvdXJjZUh1dCBEZWJp
+    YW4gPGRlYmlhbkBzci5odD6JAVQEEwEKAD4CGwMFCwkIBwIGFQoJCAsCBBYCAwEC
+    HgECF4AWIQRrEpbGWyRHJnTntlIFhbUKxqSRTQUCYNIzUAUJB4VQswAKCRAFhbUK
+    xqSRTXJxB/4xjQzdsxkN3Q6yQjdS0JJYHY2jImnJZSqld2GWoFQjQzRQWfvLFLry
+    8+YVHP8qu/+UbVXNzMnm8xBq19BZyZew6IgwkiZexyD3aj9GHN+ofhYx2T2WrjEC
+    FWANJ5Fn88fzehiryUsXT9u6R6Lu6dARr4TKziWWMQ9zrH5WgtIkdvyrXN75neRp
+    2wD6VTtzTU8jbnwdMGyII5SkTgPcfwf4cKwD/ms0uxLJUi6aogrHPf4+QDyykoN8
+    pwlcIwb4pP+TSlJ7LwMsQ5hktYoBler9VzWocoTbX+Zyz0wQl0vb3YXKYvS8sxm7
+    W96j3DYdiPmKrsgPBhuD2v65QVcIt0tmuQENBF0K1m0BCADWiQu1BIUBakCJ/RjZ
+    6HyeLpiTUpXNzvpA2rVKtHflqIcD/rwp5H5dHH7vaVlJngyihvGrPHlr+9CvFoS0
+    7LK5EnVh8q7SRfQ8ForOP2oWWrt/wfBv+YceP65kroHdMSHyGJ0XuAyjRjv3uTOB
+    zdTC2Erq16KIyQoPr9H1IsWDWMXOvL2052x1tsvLA6tKRWOSGkA3Qk6J8EvhIo0W
+    ZDalwgKvnxWRwHbkdGud/EPULk753vH6i43qJcR6iuzSlYO4Rf7sAWEiwjzp3MWm
+    oLkgO7GitlR1zdD4eBaonegHrglgEbzh6wBOOZnWqLIJBlUSAZUqV3U42YgddyFF
+    W7KBABEBAAGJATwEGAEKACYCGwwWIQRrEpbGWyRHJnTntlIFhbUKxqSRTQUCYNIz
+    WwUJB4VQswAKCRAFhbUKxqSRTcP9B/0WEpSNOSbKa+uQ9brqh3+A48YOcERBvFH8
+    pjZQjL98g0gnwpjJS8hC0xNuNx1Jzx5Xro8tO2qj2jM0SDmBABBzQRrlmm5OzbPY
+    zT/wwnZ8mQsvwj1nOv8sYeHV+4k6xZrYU44YyGffuDsIMoNUm9XV+FcPb/B7wwaC
+    C2m2KN3JyTqd6Fp1jFqgaYxU52qOP+MVCMCblaF8dWMAlrFrZDqudElxnCQrGH2k
+    VDsqnAHfvNi1C1X++7S5kVXbR4HcFbncEUWgMYcmpKhuOaPn5srBfbI8kmpdoOxT
+    koJlqLU/rFfahRPienwysk1/nBq6SYoSy7UHz4eNp2RC/D8A59Do
+    =Gl4O
+    -----END PGP PUBLIC KEY BLOCK-----

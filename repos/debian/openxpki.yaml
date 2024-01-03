@@ -1,0 +1,76 @@
+---
+# Change the toplevel key to the name for your repository. This should
+# be unique within the extrepo repository; it is what users should pass
+# as an argument to "extrepo enable".
+# If the repository name starts with a dot ("."), it is ignored. This
+# can be used for copying in templates (see below).
+openxpki:
+  description: OpenXPKI is an enterprise-grade PKI/Trustcenter software for customizable and scaleable management of X.509v3 certificates, known for its flexibility, web-based management interface, workflow support, and active Open Source community. 
+  source: 
+    Types: deb
+    URIs: http://packages.openxpki.org/v3/<SUITE>
+    Suites: <SUITE>
+    Components: <COMPONENTS>
+    Architectures: amd64
+  suites:
+  - bookworm
+  components:
+  - release
+  policies:
+    release: main
+
+  contact: openxpki-devel@lists.sourceforge.net
+  bugs: https://github.com/openxpki/openxpki/issues
+  gpg-key: |
+    -----BEGIN PGP PUBLIC KEY BLOCK-----
+    
+    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
+    =YrpU
+    -----END PGP PUBLIC KEY BLOCK-----

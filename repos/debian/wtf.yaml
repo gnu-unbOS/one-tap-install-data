@@ -1,0 +1,54 @@
+{
+  "wtf": {
+    "bugs": "mailto:tg@debian.org",
+    "contact": "tg@debian.org",
+    "description": "MirDebian “WTF” Repository, by mirabilos; contains alternate and new packages, updated versions of packages, sometimes backported to up to very old Debian releases; see http://www.mirbsd.org/~tg/Debs/debidx.htm for a browsable repository index",
+    "gpg-key": "-----BEGIN PGP PUBLIC KEY BLOCK-----\n\nmQGNBFlP41MBDADGjAsxl0jbdknmg2CHKf7gQPBxOBk5/qw6F5HAOthBM/14sohA\niwXyXW7oEcmPAKc7v8yn+A/JjrCfsp6rXUnMlB37zr5qb0JIO1o3p0guekGGJ/in\n48NClFMQU71MmOvaRWIKrNVtFIhLcFncCU9k6bB1hCnhhSmHGBlsIIGhInIHbv4o\n5IZYKb0BWJ1SqiOLAwYblstUIcFGR2K+z3l+hwFgMFM0VhMCi0fCyrdEWw9Qs1I1\nl0K3hzG2WUOhWO+aY4qoOyPlMc3a9zXBFdc0JHptRgh3JTBf2gK3kO6wcPfdG5Hq\nbtCstesRFYS9nOoKwyxg80iZYpV4+q6POeS43Xfi2APXB+3tXAQJ5+dCYam/jlzu\noyPAEZxai5R8m1q9SD+c16nx8F5GSuEoAcvfyAc7EqhCfnjh3o2/QokOPPboMRWW\ns46FaIWZiuNf8p1hfgj6cjH1ny124AbvvClddCDPuFwwXVxRji3ApeOwPUkqoFDn\nzebsA4OA2+ggEGEAEQEAAbQxU2lnbmluZyBrZXkgMjAxOCBmb3Ig4oCcV1RG4oCd\nIHBhY2thZ2UgcmVwb3NpdG9yeYkBuwQTAQkAJQIbAwULCAQJBwUVCQoDCAMWAgAC\nHgECF4AFAmPUf44FCREBvi4ACgkQAgir6mZzodktTgv9E48RRmVBXg8bVHxEjnvd\nNQY3b/KjACzcs9iKVE1gPG0wrdo3DzCDhCfuIqeofz6/KWeoZUZi9NpJV8JIrzxZ\nwjQAFAckuGhBRHo4OOEzYW+YyJMdWa1btM2qYy0YgBI4VJpbSQubW7s+iYosF4qg\n639tj0rRmBvScWvqKy0o/VxE4HvsZfq5abL/C4txpummmYuo7qHapoLNAgXylfoB\nZ5xrRwZR64rLiIupkP8OwxF0oAXLvNrxN6CLJ3xBYCoaYU2phtA9b56FucGh6cts\nCMpivK9iYt6GexFNw9DWxEffCRSdsT8uSp3CfktVb7BK0hjbQbZUvsDY870akRpx\nG7c0D/iOK/lPpdAc/NXmCeM8dFWa6GaIc72cg60Nh9nrHedygALV7jY2wVxQRXgJ\nRlU7iWE/Y56OcGQ6vERGK5ZpUN8sGS8EX2daltMBAyaA3xQ9LjCCE6uNAtIl89Yc\n1Fz5a02YLhd3YU39gbgx+vSKvBik5VO4o7mvLfEySR/n\n=z3/K\n-----END PGP PUBLIC KEY BLOCK-----\n",
+    "policy": "main",
+    "source": {
+      "Architectures": "amd64 i386",
+      "Components": "wtf",
+      "Suites": "<SUITE>",
+      "Types": "deb deb-src",
+      "URIs": "http://www.mirbsd.org/~tg/Debs/",
+      "suite-jessie-Components": "wtf yplentyn",
+      "suite-sarge-Architectures": "i386",
+      "suite-sid-Architectures": "amd64 i386 m68k x32"
+    },
+    "suites": [
+      "bookworm",
+      "bullseye",
+      "buster",
+      "etch",
+      "jessie",
+      "lenny",
+      "sarge",
+      "sid",
+      "squeeze",
+      "stretch",
+      "wheezy"
+    ]
+  },
+  "wtf-lts": {
+    "bugs": "mailto:tg@debian.org",
+    "contact": "tg@debian.org",
+    "description": "MirDebian “WTF-LTS” Repository, by mirabilos: a subset of the “WTF” Repository (so you don’t need this if you already use the latter) comprised only of packages that are backports or forwardports and/or security updates of packages in Debian, for example for no longer officially supported releases (bash for wheezy), for no longer open backports (MuseScore), or not available in general but useful for users (OpenJDK 8 for wheezy, jessie, stretch, buster, bullseye and bookworm; freexian-archive-keyring for easy access to ELTS; …). See http://www.mirbsd.org/~tg/Debs/debidx.htm for a browsable index and http://www.mirbsd.org/~tg/Debs/sources.txt/2-ltslst.txt for a list of included packages (subject to change).",
+    "gpg-key": "-----BEGIN PGP PUBLIC KEY BLOCK-----\n\nmQGNBFlP41MBDADGjAsxl0jbdknmg2CHKf7gQPBxOBk5/qw6F5HAOthBM/14sohA\niwXyXW7oEcmPAKc7v8yn+A/JjrCfsp6rXUnMlB37zr5qb0JIO1o3p0guekGGJ/in\n48NClFMQU71MmOvaRWIKrNVtFIhLcFncCU9k6bB1hCnhhSmHGBlsIIGhInIHbv4o\n5IZYKb0BWJ1SqiOLAwYblstUIcFGR2K+z3l+hwFgMFM0VhMCi0fCyrdEWw9Qs1I1\nl0K3hzG2WUOhWO+aY4qoOyPlMc3a9zXBFdc0JHptRgh3JTBf2gK3kO6wcPfdG5Hq\nbtCstesRFYS9nOoKwyxg80iZYpV4+q6POeS43Xfi2APXB+3tXAQJ5+dCYam/jlzu\noyPAEZxai5R8m1q9SD+c16nx8F5GSuEoAcvfyAc7EqhCfnjh3o2/QokOPPboMRWW\ns46FaIWZiuNf8p1hfgj6cjH1ny124AbvvClddCDPuFwwXVxRji3ApeOwPUkqoFDn\nzebsA4OA2+ggEGEAEQEAAbQxU2lnbmluZyBrZXkgMjAxOCBmb3Ig4oCcV1RG4oCd\nIHBhY2thZ2UgcmVwb3NpdG9yeYkBuwQTAQkAJQIbAwULCAQJBwUVCQoDCAMWAgAC\nHgECF4AFAmPUf44FCREBvi4ACgkQAgir6mZzodktTgv9E48RRmVBXg8bVHxEjnvd\nNQY3b/KjACzcs9iKVE1gPG0wrdo3DzCDhCfuIqeofz6/KWeoZUZi9NpJV8JIrzxZ\nwjQAFAckuGhBRHo4OOEzYW+YyJMdWa1btM2qYy0YgBI4VJpbSQubW7s+iYosF4qg\n639tj0rRmBvScWvqKy0o/VxE4HvsZfq5abL/C4txpummmYuo7qHapoLNAgXylfoB\nZ5xrRwZR64rLiIupkP8OwxF0oAXLvNrxN6CLJ3xBYCoaYU2phtA9b56FucGh6cts\nCMpivK9iYt6GexFNw9DWxEffCRSdsT8uSp3CfktVb7BK0hjbQbZUvsDY870akRpx\nG7c0D/iOK/lPpdAc/NXmCeM8dFWa6GaIc72cg60Nh9nrHedygALV7jY2wVxQRXgJ\nRlU7iWE/Y56OcGQ6vERGK5ZpUN8sGS8EX2daltMBAyaA3xQ9LjCCE6uNAtIl89Yc\n1Fz5a02YLhd3YU39gbgx+vSKvBik5VO4o7mvLfEySR/n\n=z3/K\n-----END PGP PUBLIC KEY BLOCK-----\n",
+    "policy": "main",
+    "source": {
+      "Architectures": "amd64 i386",
+      "Components": "lts",
+      "Suites": "<SUITE>",
+      "Types": "deb deb-src",
+      "URIs": "http://www.mirbsd.org/~tg/Debs/"
+    },
+    "suites": [
+      "bookworm",
+      "bullseye",
+      "buster",
+      "jessie",
+      "stretch",
+      "wheezy"
+    ]
+  }
+}

@@ -1,0 +1,89 @@
+---
+libelektra:
+  description: Elektra - the configuration framework for everyone 
+  source: 
+    Types: deb
+    URIs: https://debs.libelektra.org/bullseye
+    Suites: <SUITE>
+    Components: main
+    Architectures: amd64
+  suites:
+  - bullseye
+
+  policy: main
+  contact: robert@sowula.at
+  bugs: https://github.com/ElektraInitiative/libelektra/issues
+  gpg-key: |
+    -----BEGIN PGP PUBLIC KEY BLOCK-----
+    
+    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
+    rco8IZAmqx59KHKQ8wvTYmVqmhcKNDnuW9KEQWU=
+    =SPBS
+    -----END PGP PUBLIC KEY BLOCK-----

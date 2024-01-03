@@ -1,0 +1,73 @@
+---
+eturnal:
+  description: |
+    Upstream repository for eturnal, a STUN and TURN server that supports
+    RFC 5389, RFC 5766, RFC 6156, and the authentication mechanism
+    described in the REST API for Access to TURN Services specification.
+  source:
+    Types: deb
+    URIs: https://deb.eturnal.net
+    Suites: stable
+    Components: main
+    Architectures: amd64 arm64
+  suites:
+  - stretch
+  - buster
+  - bullseye
+  - bookworm
+  policy: main
+  contact: repository@eturnal.net
+  bugs: https://github.com/processone/eturnal/issues
+  gpg-key: |
+    -----BEGIN PGP PUBLIC KEY BLOCK-----
+    
+    mQINBGF4G4kBEACtbwjpn45ULa0kEavxLeHKHVejeKo0GdgXsKjFj99u9xlz5Xpm
+    qGq+A6IdxFhLcGd406xef0zFc2oS103U91lAb80r7C50KfbSj/nRYfyso++i4ZEi
+    7Y43DiWIlhEXN308JoIsNdoofeDAS0UZtHt+wtXxrPVjXGw7nIEKRmx1NEkIZwgg
+    B0TkHowSovv823uibiQXIF7HYFIrh+iIB6Asebed020HjN68sMUa6HNH7bLJSAsI
+    0ZdkOziPQHlMh+ErpBIUJA2ZUsVAqF1mLZMhjmlyDD6ZkUYkNoW38AHLVRX9qye7
+    mK1yKmZsB1oT/3CilEu4aBQaBu5lSW2LGnl5gXggEx0I36TH6Al29ZptfKzB635c
+    vD2H0bE20944U2G86YKIu7E8WoJja8aPw6/dcBpP8+2ULD6tkpgw+WjtnWOiQCxN
+    w7Qy8G+m2LpEGlutgWJQ81Fh/OdUb+1OJ+TGO+iHxhAFR++hscO6yX8Fbh+ounQ8
+    YIE/OrG/mXrku7xKNawWiapMyEIG3lwAoTjj7F5zp6AjUCyf1rP255PQBTN5oy74
+    JdKHCQkoJBWgLYbFA5LUvc/Dvm7o46P4JvtDVgNweRAJs7DwGqmKFuDEO4Wd6tx7
+    zL1Ept1HaTLaJ7tOgtgTM31+kGoRPA7kAqhW2E0OfKfC2hhEpoG6IFL7HwARAQAB
+    tCtldHVybmFsIFJlcG9zaXRvcnkgPHJlcG9zaXRvcnlAZXR1cm5hbC5uZXQ+iQJU
+    BBMBCgA+FiEEYM3ygZqca9P/rEz88tRW6Bbw1SsFAmF4G4kCGwMFCQlmAYAFCwkI
+    BwMFFQoJCAsFFgMCAQACHgECF4AACgkQ8tRW6Bbw1SuJ/BAAiXoKdCLUDJjXBfTy
+    NTl/He3R3AawjZoeWKLr8s+Crx00pjwSKpAJTqUhVzoMPHkBAhHO1YXU/5E5ksXB
+    y+mQtpxFKtdfj9iKid93tly2Ni888v5ca16LAlz7R5FOa/J30ARyEd2tRpYxs7ln
+    VsYvXOP0cVw10c8hNveGXax4adbAYu7KzOeqCVKkSriI8pd5m1/zfsDtLi5YbjxA
+    iCcg8MZmLMtX5klGrkfaJNRZDCyU5AHzZSUZTKKuli/zHovLjrUOH/urQIaQw7j2
+    hBcPdrvg+xNE5sHKFKU8skzrFPxn++QQxwhwX/w79vpRCIDJbLVndfpxxiMQhI6A
+    52vlOH9ekfge0GyKVv257mNSyDwNyBcOH9I+2Ci7zt+qzui4ujB+7x/lEGwbhXv7
+    V/q6AR0tNQUhuEaAADgNYkZO512okn53xCswjd5N2ORCcbLHgFmfXnze9vq8Wsf3
+    v26Ss72y+SdjOZ7zy0ahJpML5bSufNUbZJex9qpFTd2qSX8LEguMbQo1sxTe9L9r
+    bAWxLB50GWS4L46+aS9npNWt9vOIEsA+mtOCIQJfU+ofbk388Nt3KdFidJjbDNOZ
+    1aUbyr+rLek77iwsPk0prZBOmKVDsAvdGe2gZAsRgrH4irMbWuSw85KOYwx060p0
+    BB+pD5L3zHiJCPFWlV7oRFW/fwW5Ag0EYXgbiQEQAPlDokLMkEpIUVWpmctSn0p4
+    bxygvaTwtHOEPb7PEmbChhRP6/kD9Sm2sf+kRTQhGxPOxKLZKmBLXvDDHvfXRmgr
+    Snuv/tXCQ491hJAmx/+73aCrVICcgxCoqOxnZw4ZKhTIu/PTfUCK9A6S80kOH/9q
+    9W7xgw5BZiq2DMjHepYPSn/1aZu84zcqsm+IahRTJ6GIiVgo46+L0qCfxje47H9G
+    jRHJD9UQupBwyqFhf2hp+1ZN4ohl2BegFD/aLjA7c0lExj7GsBVLrHlHtGhPt54I
+    Zws34BhzqDCU0sQkKtaZhlaTzf5RMrZxktEtADENBh1sIVB/sGnuXACNZExRdauT
+    MsNRxihqywvELXi1lFPe6UvFmMaF/cAvOSiJuO6GNqq0xgXTbsP0sIp8hK5lC58D
+    BcTXIKFO2cYeRWdeQxkBKTTZmhCqh+dcEFKINmlEdSDmY5zcl+dn8KWZRjRCw2NE
+    a6TaSAmLiZdTttfaHCn93LR8GXF2mJmwHldzzlxfVaerimq7vVMh/EWpF5q03RLk
+    vYwqwlsvx4oSgAVGQqIR7VgjqM41j90mpcl5eNqWMVAPOtxYZBoPn8JFFJ1Zniha
+    dsJwWROvfYfjoJ/lN/v4ZO19Oa8AYQ/N8djZ0kzO+k8Gp0CZheCIW5qeejFJ/wjS
+    zpTF1r2XK5XZOAdC6KIhABEBAAGJAjwEGAEKACYWIQRgzfKBmpxr0/+sTPzy1Fbo
+    FvDVKwUCYXgbiQIbDAUJCWYBgAAKCRDy1FboFvDVKyyuEACLN05anWuLQyTwtaL9
+    A8xXjl70zEw7/q6WOgm7fioHGhYNWLLqTycL5hCdJgI6/z5nbEKCOtRLS8OQImsT
+    /koErKEWeVO5X7+Sf5lxURRWigcngduU2GplGTFWrdWJ1FcgTxWaApmujPTtzcz3
+    +8dkOS3ZrDX+YiorDhjj0DypIvifiZ61OSBoG+MZr7oGbNYbpLQuM6wF/ZvD3Chm
+    0pivtRPNRRn09qoETDyootltc020DIfCsaUUcdVwlwsc4zR1Sz0q7VtCkuPb5+Tu
+    nTnxPRs/VwOXvcTM3OrvVwrikLPxn7RYnJXWIJLbf5GOqsVCqhxj7IDtqU2vF6yU
+    HJEF/9GWzflFTzKLLfjRulnQCi7c9Pu1TTv2wmSWb+beO1nSyscgD2KB/4dzbL+l
+    lP1UOLiC5zGTewoAleu5FsEyuZznU08VmBOAt8VuSAy0nMgiuZSUNSnuhalW07R0
+    PHRBtFRSuppiSxiTqHr0t6u028y8QFrdTlcmE5GGItQG1uDp6yRWSVoB+MmQHG0D
+    Pw9lvBautnxg/r8tuJSWDxgKftCGd0XClYh83wV2MVPRX52OA8ligrySgWEVRYbX
+    Q3UTMtujEBHdyFHdtgaIDDcKciAErahR2jeKB1wUle+lG5TPURG04Et9O/T1uK4Y
+    IrYV0+4ecLbwjZjYYxp7z4gNlw==
+    =PrjC
+    -----END PGP PUBLIC KEY BLOCK-----

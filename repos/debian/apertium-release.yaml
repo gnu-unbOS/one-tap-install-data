@@ -1,0 +1,100 @@
+---
+apertium-release:
+  description: Release repository for Apertium, a FOSS machine translation platform
+  source: 
+    Types: deb
+    URIs: http://apertium.projectjj.com/apt/release
+    Suites: <SUITE>
+    Components: main
+    Architectures: amd64 i386
+  suites:
+  - bullseye
+  - bookworm
+  - buster
+  - sid
+  - stretch
+  policy: main
+  gpg-key: |
+    -----BEGIN PGP PUBLIC KEY BLOCK-----
+    Version: GnuPG v1
+    
+    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
+    KUGkAxTiLXiyQVlEsb6lq4kp3yl11/FYE7p0zPg=
+    =Dyys
+    -----END PGP PUBLIC KEY BLOCK-----

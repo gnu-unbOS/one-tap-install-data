@@ -1,0 +1,44 @@
+---
+lihas:
+  description: lihas.de apt repository with firewall-lihas, check-mk-agent-plugin-*
+  source: 
+    Types: deb
+    URIs: https://ftp.lihas.de/debian
+    Suites: <SUITE>
+    Components: main
+    Architectures: amd64 i386 armhf
+  suites:
+  - stretch
+  - buster
+  - bullseye
+  - bookworm
+  policy: main
+  gpg-key: |
+    -----BEGIN PGP PUBLIC KEY BLOCK-----
+    
+    mQINBF3f1nsBEADchJHLVOWJAltuDBXPbyrsG24+cnsuh05solxMvNx6ZPZoFwP2
+    SaIimS0eMv+BI173vl/oRsmU+A5a0ESGH3Eq1jGhCrLRzWug/Ma+EQb8vfQmkGRR
+    PDd2XRXZM7/ojGf32pprhyrgYkkeW9vDUllPMyDOslTOF2YoMKdAivGGJNkMXOT5
+    SXTa2KpcEDtEE2ZM3d0knXEtv+2ultwFI0HypSLimneqRilLcta2FWbBGaln5W+b
+    ALFVk2WjAAZWgwfnsof3pYZUYcjEKqqeGvp4MLwQFl3qw8m1ML/q0L2FyzKTaG4t
+    6aDHFFlg5eYxVvb+7XPGu1H+/IKHQdRq0WNeXrQBZOB1JCOT7k3FKsekpELYuhSt
+    8QTz8sMeqt5JhtXZGzLFKHgcql02qsIREpRqx018UvIyjfaWIy+1EMxBrM95JY66
+    eKU7FI0JyzI/ztsvpAZnf/S5Lobz8fdVcV6Vs/3v0UJgWWwyFsDoMwAfS3QaQ5lD
+    UR7ywDMuQ3FdKodp/dLuwosNxkoFHIlo7PjdBwqmgn8kzz21muKXgT8hCpsGq595
+    sKQLULu2s3n6QCvR48ahW//MAlkRONvO3ErbLbFqOZbWnSjeS8504tRWn4VkxeeP
+    MXdmb5K8yy6BOd7ZvzcDRa36KYI+BAydwjbPgRXAIeKuCJe+bCzjYgeCJQARAQAB
+    tCxMaUhBUyBBcmNoaXZlIEtleSAoMjAxOSkgPHBhY2thZ2VzQGxpaGFzLmRlPokC
+    PQQTAQoAJwUCXeAfrwIbAwUJCWYBgAULCQgHAwUVCgkICwUWAwIBAAIeAQIXgAAK
+    CRDuIHKLlaMI96FfD/9djJWrnCva/SkUzmcKh/t0WbYhguz0UqqpMbYH5T0ZdRUY
+    gjgEt5S0fx8k63b0ThIjKlXkJIv5hxkeKRkJV9nItkaKHwr0APUXZ+Ho7zcHgfq5
+    rc7WZ9kvEJ2hO+VdOgeXtMbyq8kGAkbsf58zOY9vhXLI0zjOWiydihjK9WzD0X8x
+    c0Jk4bbD5cCt/NdAqiLnM3VjbYk0wjyg59Rr3N6vns9yR6e/BtYT2Qz1MhwzGe/x
+    A7EV34UJiFKLK07PfVwedEzRTctUiM7sBZyA3uEdH9h9iiFKV2er8EjoG7i2bSrn
+    aaJxhNdIR4YpnMmvUAgGh2tkuF+x3Bpa5cybkaEoPA3gsgoGWqQMn+Iu3SJxTo8G
+    peZTiRqmMzCqp5iJeTgSwkZGw/1Hy2DJHr2MkG356jyCVEsxtpTARakPkLVfQmiZ
+    iyC+xvq2j8WN/Wz4zLxIVJr4CCHVqUQ5bworvWZPuquLX1WLMR37ayeI8z050Fm9
+    VKmg66CIcnceqW1YN8urQAcQr8T2uuyVHFk0D3udVoZHVRceYaDkoeB5vMb3EAvv
+    481j8mLozxpaXNxQDzQg4qDcwWk6dVm/o7ZHB0trZFzercfduJdnnZ1UmQJdS9U1
+    VNHp3XIQ2NNjHm2syrGnVlklXap/0dA2GRkZgBkvrjyXQsoPdZnkafvEDlScVQ==
+    =Tl2Y
+    -----END PGP PUBLIC KEY BLOCK-----

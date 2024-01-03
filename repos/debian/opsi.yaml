@@ -1,0 +1,34 @@
+---
+opsi:
+  description: Open PC Server Integration Repository. OPSI is management system for PCs
+  source: 
+    Types: deb
+    URIs: http://download.opensuse.org/repositories/home:/uibmz:/opsi:/4.2:/stable/Debian_11/
+    Architectures: amd64
+    Suites: /
+  policy: main
+  suites: 
+    - bullseye
+    - bookworm
+  gpg-key: |
+    -----BEGIN PGP PUBLIC KEY BLOCK-----
+    Version: GnuPG v1.4.5 (GNU/Linux)
+    
+    mQENBFnPRHABCAC3RJ4Y74ME4nBCkXI7tf980UcsTRMMhcTdq3pNUVnklR5puxje
+    J9Dm67gLtkggci9X0gR+eOXKbLAclWI68/gpKiev+cslbOkXsvniwmuSF9fTTyEy
+    s2BV2C53tNEAa8VA2okwG8F/2tXMyk8/I0N+HZlnNZDrT5oeThZGHhe3MtS9KwQH
+    vFlyq6VQA36RvKhXS/mkI/GdirrggLibWXGJ030+wDy0/tR2fr1C1lfvdQr6D+jd
+    WGIHkJ5pIdz446qlFfOAjX/WLt9Pb3yav9SuXknTLnipouwAoUY24OFb7Q/xVQvW
+    XPb/5XIAwcrk4rB/Tt9Ux3bLiMEBAdqj/1TXABEBAAG0QGhvbWU6dWlibXo6b3Bz
+    aSBPQlMgUHJvamVjdCA8aG9tZTp1aWJtejpvcHNpQGJ1aWxkLm9wZW5zdXNlLm9y
+    Zz6JAT4EEwEIACgFAmEtyg4CGwMFCQt9NZ4GCwkIBwMCBhUIAgkKCwQWAgMBAh4B
+    AheAAAoJENH5M+bYNh+BICMH/0nnm+WKlhdcTiT63vMw58jCxIX3lcPCTdQWLfAZ
+    oWHv/cEgLy4L9RP0oiK4fiDxqkQVcmGYA2MCpJ2NP/Vfq9//xsLvb14ftbMLIIT8
+    2Px1YKGaHUcYs3s1lkGq062R+TOhybk6KhBfHRMQvaqISHMF/D3f+pN+YBp/39lu
+    emF8EOCWqRySImC7vEk/6BiREUN0qQIZjX/Fm86rXEcrSS0TJ8BubJDLi2Unlvl2
+    f61LShzlt+Dg1i8wASn/uLE3RYfBs99AkBTqufMEt0YLrlnuaBxzl5itjtOIq7NI
+    VZIxFY+f5ewKJCEzomnUbr2Ynv5/agt2Dd4YIbipBKILYwmIRgQTEQIABgUCWc9E
+    cAAKCRA7MBG3a51lIySVAKCsF1QBiB4FsruT1WeIkMmWhvYznACfYRX9Oji/SHNC
+    Dsr2KLVSk38sEQY=
+    =HKMc
+    -----END PGP PUBLIC KEY BLOCK-----

@@ -1,0 +1,68 @@
+---
+liquorix:
+  description: Liquorix.net alternate desktop multimedia/gaming kernels
+  source: 
+    Types: deb deb-src
+    URIs: https://liquorix.net/debian
+    Suites: <SUITE>
+    suite-sid-Components: main future past
+    Components: main
+  suites:
+  - buster
+  - bullseye
+  - bookworm
+  - sid
+  policy: main
+  gpg-key: |
+    -----BEGIN PGP PUBLIC KEY BLOCK-----
+    
+    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
+    my156zK4hVVkDxBR1IEUUteMiwy8sXdths8=
+    =dhr1
+    -----END PGP PUBLIC KEY BLOCK-----

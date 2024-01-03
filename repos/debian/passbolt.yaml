@@ -1,0 +1,51 @@
+---
+passbolt:
+  description: The password manager your team was waiting for. Free, open source, self-hosted, extensible, OpenPGP based.
+  source: 
+    Types: deb
+    URIs: https://download.passbolt.com/ce/debian
+    Suites: buster
+    Components: stable
+    Architectures: amd64 i386 arm64 armhf
+
+  suites:
+  - buster
+  - bullseye
+  - bookworm
+
+  policy: main
+  contact: contact@passbolt.com
+  bugs: https://github.com/passbolt/passbolt_help/issues
+  gpg-key: |
+    -----BEGIN PGP PUBLIC KEY BLOCK-----
+
+    mQENBF7Cl5sBCACoJ/6WVxROWaGy7KVuVjer6IpmsGCIdQx1D9sVTjqcdzrcIpGB
+    xKS+ZSQMgCy/KETBTXRKQ6l3wb49ppvVDnuw/5oduH6th4ymfcveNP/CmlhbqE2U
+    LQZIp79Nvlahes15ppnUiyZ87MljXRTckpasKcGekHn/zbFzs+kaKqYvnlmbxIhZ
+    tSCjxj614XJ4hqmXp+45cq5oerxqBJTDh7oxjMt6Cx6+Y3V3P10LtTVjKEoFqfpl
+    PgsBjOIqRjxT8AbeYs1zmVP3I70xx7qjH8WhuuQwje3DEOiWkAIufoNo7sT4ubjd
+    5aw7rfAyYx65gV7+kDj7Bsn8WDwwBquWYFlxABEBAAG0NlBhc3Nib2x0IFNBIHBh
+    Y2thZ2Ugc2lnbmluZyBrZXkgPGNvbnRhY3RAcGFzc2JvbHQuY29tPokBawQTAQgA
+    PhYhBD0aA0bI4YAvd0rvId6LhT/BVVgdBQJewpebAhsDBQkDwmcABQsJCAcCBhUK
+    CQgLAgQWAgMBAh4BAheAACEJEN6LhT/BVVgdFiEEPRoDRsjhgC93Su8h3ouFP8FV
+    WB2IkQf8DbL9C2VX5WGT5GiXLKz/oSqGqR9bLJjVLcv3KqYWGOuXdOWX5iSMhQ1k
+    3onBIbqi9Z7XdD1Le92BYBS4Sr92tsCfOfwXb0KwSo2kVGAV9Do2/b+mxTm1SLej
+    +NwVabsUhp+ulr9i2fZdWGsn/r/tbEP9UoN/etiggQ4mLGsN9ScDiWh3ssiXTvtY
+    hHPUA48nSv3opD6Rjz8xMQaG9z6LvS7ZaPt7qbO13A4EC5a97SAgO0A/Ngb9JPwt
+    Sh3kQZHmtrH5/DYJX5im7BkG0W1rRKpmWpiSzqR0wq9zS80ZnBm+YdvucqvdH2x4
+    sNn8QbF8Y72RjIMBhlRYTO5HBjt5fbkBDQRewpebAQgA2ELH4ejaYfyVXPziOB+Q
+    ZZn6r9BjbcJhrlFP99RrpMrxEcR2smqfH1fwYXI/I1bb3B6AdzsSXV4cb7WEfqHy
+    u+fLvFeiBv8dAQQ0uHaJWo9CRJyi+RNvkMQnh5J7M6bUduv84StDxzPeoabfwe+V
+    DPkeiW76NHHCt50tKt1vqwoIB7DUGWdKqDTO24uCgjFRaVKSQMHBRFn68cd336v7
+    LeZA/EFFv86wOq+p9E/V/hpuivTZAI/3PWQTguKiwaqx7ZaoI40+54Lc1MbZTXAQ
+    H+O91kYCywvZQb1SDZu/LEA7xgOiK9tunm4aS433k9JfG/uH64O72JL80WXRHfzX
+    5QARAQABiQFTBBgBCAAmFiEEPRoDRsjhgC93Su8h3ouFP8FVWB0FAl7Cl5sCGwwF
+    CQPCZwAAIQkQ3ouFP8FVWB0WIQQ9GgNGyOGAL3dK7yHei4U/wVVYHSvSB/449rQQ
+    xP63R6aWlzpvHzxkCnkwWFKWo109fwgcEIupEnNK2clOcHeP9Ors6VYbZYDUYaw+
+    ijw4cMo0f5pY84iRhNgZVcVDyDC5LL70fEhGOhUyEbTIWMzUa4KgtIfofkevShfn
+    KZ/vSVyKf6WoR44cWRPW6YRCey2K9NQU/UMtqhnRN0lNtDBzPGyUcyP17BwXzxfH
+    9uhXdbRHGsYPSYQeIZ3tfqofHlMDvSqncI9v63B7aLVS2N5oRoIg9fqlZJeRoWis
+    R4V1GjX/qmzqwEMjgJ0yyMX/1CgVO8LQfWV9avxm+6BYJaKvzQO6/zv1gs7klwQn
+    oAGTN2k6RaDexdm1
+    =m+Yb
+    -----END PGP PUBLIC KEY BLOCK-----

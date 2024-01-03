@@ -1,0 +1,77 @@
+---
+matrix:
+  description: synapse from matrix.org. An open network for secure, decentralized communication.
+  source: 
+    Types: deb deb-src
+    URIs: https://packages.matrix.org/debian/
+    Suites: <SUITE>
+    Components: main
+    Architectures: amd64 i386
+  suites:
+  - buster
+  - bullseye
+  - bookworm
+  policy: main
+
+  contact: packages@matrix.org
+  bugs: https://github.com/matrix-org/synapse/issues/new/choose
+
+  gpg-key: |
+    -----BEGIN PGP PUBLIC KEY BLOCK-----
+    
+    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
+    =fXGk
+    -----END PGP PUBLIC KEY BLOCK-----

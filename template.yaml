@@ -1,0 +1,100 @@
+---
+# Change the toplevel key to the name for your repository. This should
+# be unique within the extrepo repository; it is what users should pass
+# as an argument to "extrepo enable".
+# If the repository name starts with a dot ("."), it is ignored. This
+# can be used for copying in templates (see below).
+reponame:
+  description: Describe your repository here. May be multiline
+  source: 
+    # Add any Deb822 sources.list(5) keys you want to add. Note that a
+    # Signed-By: key is added automatically; if you add one explicitly,
+    # it will be ignored and overridden.
+    # 
+    # The special value <SUITE> will be replaced by the suite the user
+    # is running; it can appear in any of the below keys.
+    #
+    # The special value <COMPONENTS> will be replaced by the
+    # (space-separated) components (as listed in the "components:" top
+    # level key), after filtering by the policies which the user has
+    # enabled. It can occur in any of the below keys; but it will
+    # probably not work well unless used in the "Components:" key.
+    Types: deb deb-src
+    URIs: https://deb.example.com/debian/
+    Suites: <SUITE>
+    Components: <COMPONENTS>
+    Architectures: amd64 i386
+    # If there are differences in this section on a per-suite basis that can't
+    # be expressed by way of <SUITE>, you can add per-suite keys; e.g.,
+    # suite-buster-Architectures: amd64 i386
+    # creates a line "Architectures:" in the .sources file, but *only* on buster.
+
+  # Update the list below by the list of Debian codenames which you support
+  suites:
+  - bullseye
+  - bookworm
+
+  # List all the components your repository supports. If there is only
+  # one, or they all have the same license policy, it's fine to drop the
+  # "components" and "policies" keys and hardcode the component(s) in
+  # the "Components:" key of the "source" key above. In that case,
+  # however, the "policy" key is required (see below).
+  components:
+  - main
+  - alternate
+  - alternate-nonfree
+
+  # For every component above, there should be an entry in the
+  # "policies" key that states the policy for that repository.
+  #
+  # The values here should be one of:
+  # - "main": only contains DFSG-free software that may only
+  # (build-)depend on DFSG-free software.
+  # - "contrib": only contains DFSG-free software. However, it may
+  # (build-)depend on software which is not DFSG-free.
+  # - "non-free": all other repositories.
+  policies:
+    main: main
+    alternate: main
+    alternate-nonfree: non-free
+
+  # If there is no "components" key, drop the "policies" one and add a
+  # "policy" key instead:
+  #policy: main
+
+  # Some way of contacting the maintainers of the repository.
+  # Informational only.
+  contact: info@example.com
+  # Some way of filing issues with the repository. Informational only.
+  bugs: https://bugzilla.example.com/
+
+  # Add the ASCII-armored version of your signing key below.
+  gpg-key: |
+    -----BEGIN PGP PUBLIC KEY BLOCK-----
+
+    mQINBFyy...
+    ...
+    -----END PGP PUBLIC KEY BLOCK-----
+
+# If you have multiple repositories that differ only slightly, you can
+# use templating:
+#
+# .common: &common
+#   source:
+#     Types: deb deb-src
+#     Architectures: i386 amd64
+#     Components: <COMPONENTS>
+#     Suites: <SUITE>
+#   components:
+#   - main
+#   - contrib
+#   policies:
+#     main: main
+#     contrib: contrib
+#   gpg-key: |
+#     ...
+#
+# repo-1:
+#   <<: *common
+#   source:
+#     URIs: https://deb.example.com/repo-1/debian

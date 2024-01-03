@@ -1,0 +1,52 @@
+---
+# Added by Wouter Verhelst
+collabora_code:
+  description: Collabora Online Developer Edition (CODE)
+  source: 
+    Types: deb
+    suite-stretch-URIs: https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-debian9
+    suite-buster-URIs: https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-debian10
+    suite-bullseye-URIs: https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-debian11
+    Suites: ./
+    Architectures: amd64
+  suites:
+  - stretch
+  - buster
+  - bullseye
+  policy: main
+  gpg-key: |
+    -----BEGIN PGP PUBLIC KEY BLOCK-----
+    
+    mQENBFKVtusBCACxi5Ri86yYCZ6dWTbXXiCIps82UWBksjRoxizATHQ7o5Y5ujf2
+    KtTlR8znLA1Lm4JhBUGe9a6L3+sM1M7AyU6glkl2MOY5tA1mqnPS4VLJP58ZoPPr
+    2Ll7mELqSGBQwNIE4UqOi8z4mEV/Uf79xpnlMZLJBMMV3ZmG+CfkXcm6aZe4v1hg
+    CYfDuTXLFRGC/rpc7lVxmIpDHewCfOY6Y/FsVo0rkKftTF0HSr5dPSgVoI0GJjPk
+    cKAsKGw4dznM9oVNnFCIRJeavy/aMgEn0JDmUkIrtoOqu5miUaXGpMsn8ppbE2xW
+    7Ey7Jq4plTwwgjMEzOU75oA9/i9E3J4LSehhABEBAAG0MkNvbGxhYm9yYSBQcm9k
+    dWN0aXZpdHkgPGxpYnJlb2ZmaWNlQGNvbGxhYm9yYS5jb20+iQE4BBMBAgAiBQJW
+    ONEfAhsDBgsJCAcDAgYVCAIJCgsEFgIDAQIeAQIXgAAKCRAMVNGJ9LooTaDIB/9K
+    uZCeCT2DCQEQzLQSod88LxyOdW/zRYtlHbbjGuOQS7dv8Pup+nWd3cH2BMZYj4E3
+    LYmbZDV/fG1JobNbwStrFc7BA4TTtV0K2Jwl34KqDr/QrFiuZMSgXnP2C/THrNqb
+    fCOa6b4x6Hfh6fOT0dotjHwXNM9dnrNI8dFpoGmVAQTK5E4uFdK2eFhcd206HP5p
+    EnzTIC+DeRvADHjs41S7ziLrdnzR6N0g2W3s+Toc9xVweCjkBvanolvJaaodiXl6
+    QUvfUw1NvTyVwz5IrNlHrjdjDpNmT+uLWAytjMq4meKmF+r3PSFfTfpgvHKnZAEo
+    QI93kEtb0eqJz4JGBN2rtDlDb2xsYWJvcmEgTGlicmVPZmZpY2UgPHN1cHBvcnRA
+    bGlicmVvZmZpY2UuY29sbGFib3JhLmNvbT6IRgQQEQIABgUCUpW4lQAKCRBPjOxi
+    ztCAg37FAJ95zJURAo1bDsdssMmg+sodZqrV9ACfV3qp5lL4789m49UyZYbHXDuM
+    8PSJATgEEwECACIFAlKVtusCGwMGCwkIBwMCBhUIAgkKCwQWAgMBAh4BAheAAAoJ
+    EAxU0Yn0uihNBaAH/32gWzYFRK0WeY12tGhFFbI4tG8+POErY/TONwfu+V7ODX3i
+    OFDj29YazYnG9GvbDMinX0nlhZBUUDPB9qkbTaWFhBaQkuhCfv7pYU5mhdD2jICo
+    IccbS6Aisr96VH5gGsCBzwMmPtXmAW40x1JK54IccVpU9UdPlpWFFkt6hRgyoQlL
+    Ay2vJlX1V5ymsFwrAOHQOlURdXBND19PP99S6ecBeHUMJgWoY8TB1sFVaTr59Rez
+    iIbayg/huC86tCF2m+nBiG1HM6yDFSa8EOcKqUv4yesqoNqj3P/ylv5l5dsJsj+Q
+    rVlrDbWvkXCozpnqTkzEedt/c2LzsNKYFfYMcUm0PkxpYnJlT2ZmaWNlLWZyb20t
+    Q29sbGFib3JhIDxzdXBwb3J0QGxpYnJlb2ZmaWNlLmNvbGxhYm9yYS5jb20+iQE4
+    BBMBAgAiBQJVMf1FAhsDBgsJCAcDAgYVCAIJCgsEFgIDAQIeAQIXgAAKCRAMVNGJ
+    9LooTQHiB/0V3RAY+ac7ikXWLe6fAz2apk2Y0vvCABoc5zzP0CBO2Z8BJT4QlDD+
+    A+Z0I27GxT2H592DMz26KyhKP6T3Bcv7jouSWdswHU1/yTOyb2vGG+1x1S8nFLUt
+    28KrVrSJEkNRUKDEx0bQZ8Rj4+JC/n3lGwTtc1A+8US1yvoczxe+Kot0TSAa+h3k
+    DPxV0lPnhGOK4iRS9nj8CBgSNcpnQ7y1vUJkgvjeN/sG1bLz0+FGelQPT1v05sbQ
+    1wWns1gdiDQkE3WT8aF9/GhgcAO9gSp7hYkMfEaXsh4cvfNzZI/Uo/8gNpHhZLuN
+    nxvM2F99eNaZm7vugGG1O+2AMyyWOkWF
+    =nZZZ
+    -----END PGP PUBLIC KEY BLOCK-----

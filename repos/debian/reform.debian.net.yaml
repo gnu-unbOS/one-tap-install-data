@@ -1,0 +1,78 @@
+reform.debian.net:
+  description: Debian packages patched to work with the MNT Reform open source laptop
+  source:
+    Types: deb
+    URIs: https://reform.debian.net/debian
+    Suites: bookworm
+    Components: main
+    Architectures: arm64
+  suites:
+    - bookworm
+  contact: josch@debian.org
+  bugs: https://source.mnt.re/reform/reform-debian-packages/-/issues/
+  policy: main
+  gpg-key: |
+     -----BEGIN PGP PUBLIC KEY BLOCK-----
+     
+     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
+     usXl1jg=
+     =QfCt
+     -----END PGP PUBLIC KEY BLOCK-----

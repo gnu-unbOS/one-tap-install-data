@@ -1,0 +1,75 @@
+---
+janitor:
+  description: |
+    Debian packages built by the Debian Janitor.
+    (https://janitor.debian.net/fresh-builds)
+  source:
+    Types: deb
+    URIs: https://janitor.debian.net
+    Suites: fresh-releases fresh-snapshots
+    Components: main
+    Architectures: amd64
+  suites:
+    - sid
+    - bookworm
+    - unstable
+    - testing
+
+  policy: main
+
+  contact: team+janitor@tracker.debian.org
+  bugs: https://salsa.debian.org/jelmer/debian-janitor
+
+  gpg-key: |
+    -----BEGIN PGP PUBLIC KEY BLOCK-----
+
+    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
+    yQ2MlkllvT+4QOph
+    =fcSn
+    -----END PGP PUBLIC KEY BLOCK-----

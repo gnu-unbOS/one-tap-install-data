@@ -1,0 +1,85 @@
+---
+neurodebian_software:
+  description: NeuroDebian software for neuroscience research
+  source: 
+    Types: deb deb-src
+    URIs: http://neurodebian.g-node.org
+    Suites: <SUITE>
+    Components: <COMPONENTS>
+    Architectures: amd64 armel i386 sparc
+  suites:
+  - jessie
+  - stretch
+  - buster
+  - bullseye
+  - bookworm
+  - sid
+  components:
+  - main
+  - contrib
+  - non-free
+  policies:
+    main: main
+    contrib: contrib
+    non-free: non-free
+  gpg-key: &gpg-key |
+    -----BEGIN PGP PUBLIC KEY BLOCK-----
+    
+    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
+    dACfXHrRHa2+XjJP0dhpvJ8IfvYnQsU=
+    =HpJa
+    -----END PGP PUBLIC KEY BLOCK-----
+
+neurodebian_data:
+  description: Data repository for NeuroDebian
+  source: 
+    Types: deb deb-src
+    URIs: http://neurodebian.g-node.org
+    Suites: data
+    Components: <COMPONENTS>
+    Architectures: amd64 armel i386 mipsel sparc
+  suites:
+  - jessie
+  - stretch
+  - buster
+  - bullseye
+  - sid
+  components:
+  - main
+  - contrib
+  - non-free
+  policies:
+    main: main
+    contrib: contrib
+    non-free: non-free
+  gpg-key: *gpg-key

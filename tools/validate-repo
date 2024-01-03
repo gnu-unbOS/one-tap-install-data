@@ -1,0 +1,274 @@
+#!/usr/bin/perl -w
+
+use strict;
+use warnings;
+
+use Hash::Case::Lower;
+use LWP::UserAgent;
+use YAML::XS qw/LoadFile/;
+use File::Temp qw/tempfile tempdir/;
+use File::Basename;
+use IPC::Open2;
+
+use lib join('/', dirname($0), "lib");
+
+use ExtRepoData;
+
+use feature 'signatures';
+no warnings 'experimental::signatures';
+
+my $ua = LWP::UserAgent->new;
+$ua->env_proxy;
+$ua->agent("extrepo-data-validator/1.0; see https://salsa.debian.org/extrepo-team/extrepo-data");
+
+my $data;
+
+my $dir = tempdir(CLEANUP => 1);
+
+sub get($url) {
+	my $resp = $ua->get($url);
+	if(!$resp->is_success) {
+		die "Could not download $url: " . $resp->status_line . "\n";
+	}
+	print "retrieved $url\n";
+	return $resp->decoded_content;
+}
+
+sub url_exists($url) {
+	my $resp =$ua->head($url);
+	if($resp->is_success) {
+		print "found $url\n";
+		return 1;
+	}
+	return 0;
+}
+
+sub head_from_list(@urls) {
+	my $url;
+	my $resp;
+
+	foreach $url(@urls) {
+		$resp = $ua->head($url);
+		if($resp->is_success) {
+			print "found $url\n";
+			return;
+		}
+	}
+	$url = $urls[0];
+	die "Could not find anything like $url: " . $resp->status_line . "\n";
+}
+
+sub parse_gpgv($pipe, $url) {
+	my $found = 0;
+	my $lines;
+
+	while(<$pipe>) {
+		$lines .= $_;
+		if (/VALIDSIG ([A-F0-9]+)/) {
+			print "found valid signature by key $1\n";
+			$found++;
+		}
+	}
+	if(!$found) {
+		print STDERR "gpgv output:\n\n";
+		print STDERR $lines;
+		die "No valid signature found for $url";
+	}
+	print "found $found valid signature(s)\n";
+}
+
+sub verify_inrelease($url, $gpg) {
+	my $inrelease = get($url);
+	unlink("$dir/Release.gpg");
+	my $pid = open2(my $child_out, my $child_in, "pgpainless-cli", "inline-detach", "--signatures-out=$dir/Release.gpg") or die $!;
+	print $child_in $inrelease;
+	close $child_in;
+	open my $release, ">", "$dir/Release" or die $!;
+	while(my $line = <$child_out>) {
+		print $release $line;
+	}
+	close $child_out;
+	# For some reason, the close above does not always reflect on
+	# the file system immediately. Add a short delay as a workaround
+	sleep 1;
+	return verify_release_gpg($url, $gpg, 0);
+}
+
+sub verify_release_gpg($relurl, $gpg, $fetch=1) {
+	my $gpgurl = "$relurl.gpg";
+	my $relfilename;
+	my $sigfilename;
+
+	if($fetch) {
+		my $release = get($relurl);
+		my ($relfh, $relfilename) = tempfile(DIR => $dir);
+		print $relfh $release;
+		close $relfh;
+		my $signature = get($gpgurl);
+		my ($sigfh, $sigfilename) = tempfile(DIR => $dir);
+		print $sigfh $signature;
+		close $sigfh;
+	} else {
+		$sigfilename = "$dir/Release.gpg";
+		$relfilename = "$dir/Release";
+	}
+	my ($gpgfh, $gpgfilename) = tempfile(DIR => $dir);
+	print $gpgfh $gpg;
+	close $gpgfh;
+	system("/usr/bin/gpg", "--dearmor", $gpgfilename);
+	open my $validate, "gpgv --status-fd 1 --keyring $gpgfilename.gpg $sigfilename $relfilename 2>/dev/null|";
+	parse_gpgv($validate, $relurl);
+}
+
+my @invalids;
+
+foreach my $file(@ARGV) {
+	die "invalid filename $file" unless $file =~ /\.yaml$/;
+
+	if(! -f $file) {
+		# ignore, probably a merge request that removes one or more file(s)
+		print "$file does not exist -- ignoring\n";
+		next;
+	}
+	$data = LoadFile($file);
+
+	foreach my $repo(sort(keys %$data)) {
+		next if $repo =~ /^\./;
+		next if exists($data->{$repo}{Disabled});
+		my $tieobj = tie my(%hash), 'ExtRepoData', $data->{$repo};
+		$data->{$repo} = \%hash;
+
+		if(exists($ENV{VALIDATE_ONIONS})) {
+			next unless exists($data->{$repo}{"onion-uris"});
+			delete $data->{$repo}{source}{uris};
+			$data->{$repo}{source}{uris} = $data->{$repo}{"onion-uris"};
+		}
+
+		my $printed = 0;
+
+		my %types;
+		foreach my $type(split(" ", $data->{$repo}{source}{types})) {
+			$types{$type} = 1;
+		}
+		foreach my $ssuite(@{$data->{$repo}{suites}}) {
+			$tieobj->suite(ExtRepoData::Suite->new($ssuite));
+			foreach my $suite(split(" ", $data->{$repo}{source}{suites})) {
+				print "$repo:$ssuite -- release\n";
+				my $scomponents;
+				my $urlbase;
+				if(exists($data->{$repo}{source}{components})) {
+					$urlbase = join("/", $data->{$repo}{source}{uris}, "dists", $suite);
+				} else {
+					$urlbase = join("/", $data->{$repo}{source}{uris}, $suite);
+				}
+				$urlbase =~ s/<SUITE>/$ssuite/g;
+				my $vers = ExtRepoData::Suite::version_of($ssuite);
+				$urlbase =~ s/<VERSION>/$vers/g;
+				eval {
+					if(!exists($ENV{SKIP_INRELEASE}) && url_exists(join("/", $urlbase, "InRelease"))) {
+						verify_inrelease(join("/", $urlbase, "InRelease"), $data->{$repo}{"gpg-key"});
+					} elsif(url_exists(join("/", $urlbase, "Release"))) {
+						verify_release_gpg(join("/", $urlbase, "Release"), $data->{$repo}{"gpg-key"});
+					} else {
+						$urlbase = join("/", $data->{$repo}{source}{uris}, "dists", $suite);
+						$urlbase =~ s/<SUITE>/$ssuite/g;
+						$urlbase =~ s/<VERSION>/$vers/g;
+						if(!exists($ENV{SKIP_INRELEASE}) && url_exists(join("/", $urlbase, "InRelease"))) {
+							verify_inrelease(join("/", $urlbase, "InRelease"), $data->{$repo}{"gpg-key"});
+						} elsif(url_exists(join("/", $urlbase, "Release"))) {
+							verify_release_gpg(join("/", $urlbase, "Release"), $data->{$repo}{"gpg-key"});
+						} else {
+							die "Release file not found under $urlbase, cannot verify repository";
+						}
+					}
+				};
+				if($@) {
+					chomp $@;
+					print "FAILED -- $@\n";
+					push @invalids, "while validating repository $repo: $@";
+					next;
+				}
+				if(!exists($data->{$repo}{components})) {
+					$scomponents = [ "<unspecified>" ];
+				} else {
+					$scomponents = $data->{$repo}{components};
+				}
+				foreach my $scomponent(@$scomponents) {
+					print "$repo:$ssuite:$scomponent\n";
+					my $components;
+					if(exists($data->{$repo}{source}{"suite-$ssuite-components"})) {
+						$components = $data->{$repo}{source}{"suite-$ssuite-components"};
+					} elsif(exists($data->{$repo}{source}{components})) {
+						$components = $data->{$repo}{source}{components};
+					} else {
+						$components = ".";
+					}
+					foreach my $component(split(" ", $components)) {
+						my $urlsuite = join("/", $urlbase, $component);
+						$urlsuite =~ s/<SUITE>/$ssuite/g;
+						$urlbase =~ s/<VERSION>/$vers/g;
+						$urlsuite =~ s/<COMPONENTS>/$scomponent/g;
+
+						if($types{"deb-src"}) {
+							my $srcurl;
+							if($component ne ".") {
+								$srcurl = join("/", $urlsuite, "source", "Sources");
+							} else {
+								$srcurl = join("/", $urlsuite, "Sources");
+							}
+							my @sources = ($srcurl, "$srcurl.gz", "$srcurl.xz");
+							eval {
+								head_from_list(@sources);
+							};
+							if($@) {
+								chomp $@;
+								print "FAILED -- $@\n";
+								push @invalids, "while validating repository $repo: $@";
+								next;
+							}
+						}
+						next unless $types{deb};
+						my $architectures;
+						if(exists($data->{$repo}{source}{"suite-$ssuite-architectures"})) {
+							$architectures = $data->{$repo}{source}{"suite-$ssuite-architectures"};
+						} elsif(!exists($data->{$repo}{source}{architectures})) {
+							print STDERR "WARNING: no Architectures key in $repo:source:. This is not recommended.\n" unless $printed;
+							$printed = 1;
+							next;
+						} else {
+							$architectures = $data->{$repo}{source}{architectures};
+						}
+						foreach my $arch(split(" ", $architectures)) {
+							my $burl;
+							if($component ne ".") {
+								$burl = join("/", $urlsuite, "binary-$arch", "Packages");
+							} else {
+								$burl = join("/", $urlsuite, "Packages");
+							}
+							my @burls = ($burl, "$burl.gz", "$burl.xz");
+							eval {
+								head_from_list(@burls);
+							};
+							if($@) {
+								chomp $@;
+								print "FAILED -- $@\n";
+								push @invalids, "while validating repository $repo: $@";
+								next;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+my $exit = 0;
+
+foreach my $invalid(@invalids) {
+	print "\n\nvalidation failed:\n" unless $exit;
+	print "$invalid\n";
+	$exit = 1;
+}
+
+exit $exit;

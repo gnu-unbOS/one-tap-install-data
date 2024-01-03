@@ -1,0 +1,182 @@
+---
+.common: &common
+  description: Different repositories from van Belle
+  source: 
+    Types: deb deb-src
+    Suites: <SUITE>-samba413  <SUITE>-samba414  <SUITE>-samba415 buster-squid416 bullseye-squid51 bullseye-squid56 bullseye-strongswan59
+    Architectures: amd64
+    URIs: http://apt.van-belle.nl/debian
+    Components: main
+  suites:
+  - buster
+  - bullseye
+  policy: main
+  gpg-key: |
+    -----BEGIN PGP PUBLIC KEY BLOCK-----
+    
+    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
+    BnvkaNiG4fTeybI2Vm9rTg==
+    =Qlh6
+    -----END PGP PUBLIC KEY BLOCK-----
+
+
+van-belle-samba414: 
+  <<: *common
+  source: 
+    Suites: <SUITE>-samba414
+
+van-belle-samba415: 
+  <<: *common
+  source: 
+    Suites: <SUITE>-samba415
+
+van-belle-samba416: 
+  <<: *common
+  source: 
+    Suites: bullseye-samba416
+
+van-belle-squid54: 
+  <<: *common
+  source: 
+    Suites: <SUITE>-squid54
+
+van-belle-squid56: 
+  <<: *common
+  source: 
+    Suites: <SUITE>-squid56
+
+van-belle-strongswan59: 
+  <<: *common
+  source: 
+    Suites: <SUITE>-strongswan59

@@ -1,0 +1,119 @@
+---
+mxe:
+  description: |
+     MXE (M cross environment) is a GNU Makefile that compiles a cross compiler and cross compiles many free libraries such as SDL and Qt. Thus, it provides a nice cross compiling environment for various target platforms, which
+     - is designed to run on any Unix system
+     - is easy to adapt and to extend
+     - builds many free libraries in addition to the cross compiler
+     - can also build just a subset of the packages, and automatically builds their dependencies
+     - downloads all needed packages and verifies them by their checksums
+     - is able to update the version numbers of all packages automatically
+     - directly uses source packages, thus ensuring the whole build mechanism is transparent
+     - allows inter-package and intra-package parallel builds whenever possible
+     - bundles ccache to speed up repeated builds
+     - integrates well with autotools, cmake, qmake, and hand-written makefiles
+     - has been in continuous development since 2007 and is used by several projects
+     - has pre-compiled binaries that can be used in Continuous Integration systems
+
+  source: 
+    Types: deb
+    URIs: https://pkg.mxe.cc/repos/apt
+    Suites: <SUITE>
+    Components: main
+    Architectures: amd64
+  suites:
+  - buster
+
+  policy: main
+
+  contact: mingw-cross-env-list@nongnu.org
+  bugs: https://github.com/mxe/mxe/issues
+
+  # Add the ASCII-armored version of your signing key below.
+  gpg-key: |
+    -----BEGIN PGP PUBLIC KEY BLOCK-----
+    Version: GnuPG v1
+    
+    mQINBFwfFgYBEADR9P3emJmxZYzkZDzET/RurIF/Mw5/0h1BiCIdEEJ2uAU4YQc3
+    EcY5sO6g2obscYN5XWHgS+ieT3uOxL3CVExAFD3XZSPyZwRlmhiCW6JcoeSH+OXd
+    DWlWzemGn988eWItZEhp05Vht6S639wwktaTrwnRdx8iOPLolKdnHk2mxODW7nNE
+    gMlyXKypWG5TUwlsp0Q3i7NxobJ1gmeNS+WXiIZnkhYb16UfdkHWCDrl07PhJ002
+    Ta/TmMk38h8bJSv7ow1Vj6aZHcRSI14VuaKLzSQac4+l5f5gRRHF+zJuLWM9nyLg
+    JTc1brra0qDvUQ98g1LkSuz18xOIJd+Bhl7khU+k9mmf/ougZs55R6wd2oAA+N/O
+    xD8kLHZbaagKncHqEkH20x5T4Re+PN6457hsPm3vddB4zE6GU5YGPHe6E05lp71n
+    wcuWxZ7X3TS7w2MlAajSO8SziTgoiUjkzNDAiQGp5Wo2h9lDJRg7b8adw0dTG9Sv
+    DiHpRtxYjU1Xipj6WCDTS2Fr5zP+4TGP0mgS5DFaNayoqBusMfqryyJ7liCdTJHy
+    XKH+4MSgP2PM9lIqX/pVsgiU6yuMnfcpAjGjxJBO0u8Fg69YsKrsCfeGoEhQgbbv
+    AHb+unpj9FOJRDM2nTBG6qVj1/AQZMsYkT1bdUCfnJC/UL0hSURJN7EzdwARAQAB
+    tCBUb255IFRoZW9kb3JlIDx0b255dEBsb2d5c3QuY29tPokCOAQTAQIAIgUCXB8W
+    BgIbAwYLCQgHAwIGFQgCCQoLBBYCAwECHgECF4AACgkQWAhz9Ya3LtnJwQ//SBmi
+    hlU2r9QQlwgKom4l+sSTHMOHlJjfP6pN1ItI7+3fnz/TpPq83+mAIQnujLOxwD0H
+    GGO5RwOkwvkZq9i9Q6EqY9/tHDS3pojse16auYwg5kpDxUBH/DAhI3p/orHBqUg7
+    Sqtk7MqEYvhxIGJZyanS7NlGLDXlwlDHWmyGyvA+gTwRQjXgEtc8t6EWLae1z5aF
+    zmAD93xpWL6b7cqkj9xNrGt/N9p7KTwvKlv2R4ppBHck4t8H+6Z6Y3qGTqXsLxJJ
+    LAMbnpOXGPe+PkY4Xk76XxcBl2tk5mAgRBKEVvSmRoRm6gUomJbAce1QkqkBlLhm
+    6FTK6Bdl4QL0p/JqdZn0tjT4drOwZt5QB+AUDVSf5JoHka9VCr44NMt0p5M/bPYw
+    JFJCN0UQGSoTLfTSMyCId8+ZUlNEYh2biEsWqfLoD5o4Oy4NF/Ql91lhKMi9zgGj
+    EaRBjaXKFVH0iMqcbE8jYKN99Ta3D0yH8FWIfRIOBFZitVsTmQpsaY88echIF3qP
+    ZuDvZdPCh9S0F0KRCUTJdle+pEgTmBYZwpek3jlgfDFR1VLDGr5rl3+DB3a6IU5O
+    CJPUOoZBVhJiN+8X0ypEmSZX3+BWMoOe8xq4NQA+3PV9KVzJi9SYqbtrQwYCbiRf
+    TRswSK4OtVdfmsQiBpk0NUQkfWuL+9K9bXKz4BC5Ag0EXB8WBgEQALQnp+ojO7NI
+    jnYP+NApZqKT6PNhZjpfwewz0ziVp+RJhNOY3SHx1Su+QtJKmPtZPv4LT4ohl6MA
+    67lNzNLd9iwVFL9gD9lptBy06lKt4/aRdlXKayhMPpk7pwlusUlmf1g8Bs9bHHU/
+    d7NHD259xMM04BbVKgYpLhYss9bFHk+JYzuZWXc7EOr8l97i7VKQiyivx7xlS6IH
+    O3HO/xUCBpmclbkCEACJODqFe1Lz/19qUB18IlotdekYqxI7NgYMg3jDm7sIH6bP
+    EYJvkrs7CIGZsJxxURvYlbPX5y6qn6Plc/7Ld3RrlpCc1vbj1nfN0ckXBmhXsy74
+    bOGlmmFgJVrkK5dcLAQO4gG8WYiFv9TeXhm5TTp//3G3z6WXMTRhhXDD6N3p2jKU
+    5Di0l5B7ChmY3c1IeplwvFsy/hovAUzv6IUCbYucFHGKI6B6ooh8lliAwDvcKbbL
+    QF2kis1v1WGLGd3ipyf+YHNnq//U2bd/yJbyw71fU+QtyF2IHdIuRcmZilF4XoFI
+    SubRvyO8NOGVqDPSNKqA1aUswHMoxPcUJt3wHRkVawT+a15h0mLUv49gdn8pOmUd
+    eART5WwI8fQb83MR/x+YwRTrX0qgj0hWtBTUBPcxnJEue/U+QwDA0/Ef2GGegUs8
+    KRL7PK+fMF2yhZAISFZyPSNHkUE5Q4PtABEBAAGJAh8EGAECAAkFAlwfFgYCGwwA
+    CgkQWAhz9Ya3LtmBmg/+JOu4lIgRxWEw4jFnRbAlXyhFbBVkEM5U06zVu2h4EIpy
+    ykc6E3YDIcMp/CtYrBSFVBd6nlyR+SQhf4/Rn5SpqsPM9Uze5v1P+du2qH+qBIDs
+    C/FhuYGj6x6eAsx+QgFE9AnjypgrMcVn24Ayv+wWKwDxOw1cVA4aOqttFefa+ohl
+    Bkq9jRBCWMVrQbKmJmRJ48GTV+H6RooT9jrCX3Yr5jaoMWEgVnjsQPS6CcfwAtsX
+    BIDzhw6/J/ndo185bo3llrPJSSykmJFPwR9n1XnWQgKjhujmpXjnNIwjTfR3xUUj
+    iWgykL09I2C+Sq2iFHsQFX+ZH6NmYnImHQgVK4gW1nUZWzb4Q9GL9G6K5hyqqbRy
+    SjY/AOJkxheGXjlalJBgaUsSWIzVYha9UWGmMJlBEHcccmHWJ5+GxCOI8ItHILBa
+    gnMeTYDpF7DAyIrAR6tRPlMz8jTmj8x3Q24J108kPSi9wFmL9hCCZBhFPNfw795J
+    M/bXYdqdzEbTqxboIWX5t6WWLiorNGrIXAexIhEoahrkwYWDSycdKMJlRxE4bsEu
+    IjvCJsTjvbI97riwrqkJevQJaWyyIjeoqyoD/7XTWsC56lJKYn/ogoRt/cNvdxeX
+    kwF7lnV2psadSB3ZbwB7H9HDN3ejE7u0BpBDXOQSH+DCIE5nOqRI7rCFMC0XbJ65
+    Ag0EXB8WOAEQAMotG7swXYN4hSCYrXOLqI5batv9by3SycikHYw3boaMvfTMxfPS
+    vj9KOIUHZxjXLLUzQHh6HUx4TkM2HnfLfAjEKEg1ATjjrH+jsX0HOnq9rhETvAfE
+    7kwigNlQw9oAonNwl0GMzigyjl92sh964wgN5RrhcNUTtj9JntLSAo0bw+BHrFmg
+    x70TO1fGd/0bPKOviujuwaJp78ZemUA6TeqM0yVaSrxaqU8w7/2Jyk6fq/SVLZVx
+    ssaxUMLs1UvafE8o+J9j7w4/7YHPSeZLYoB7de1FnBkAju8OlIL0vY/piDycWmn6
+    flHh7wKlPFGjglL8tC82gyWIT0E+qzxvamnQ3DZq/Eej6yqBeuY4Jnlq97Pnn1Nz
+    Kcgp6ETaWzL/P5CP0G7xqIDcuYpFVd00ENNPAs4usUcuVQhKLvqm9NDXM9XL6kxx
+    OmpLBhwAPf5J9bZ87HT7WBk2fnHaPxYooFI0K/pnQaEbt1JrQFX4B8yvonkPyLTh
+    KpVIv4ngHwxHneri/VzEVewFdW4rYxrZWpc34/0QdHQupLC5TrKQFYBgp+nzNbm2
+    FuzeFzIGYy0N8ugTi4lvhg4sFYM8nEiknAFmLTiku8tV+Ft1WzYnvAgizaRpHBGY
+    MGG7cGxlGAifZz5d27mYKn8oSgOd4f4GkvkJas3ObqhkzC//2LK7FbHNABEBAAGJ
+    BD4EGAECAAkFAlwfFjgCGwICKQkQWAhz9Ya3LtnBXSAEGQECAAYFAlwfFjgACgkQ
+    xr91ijOjonZ11A//bPwJjSrhBJHh9tCMbY2pJwDfTdxXw6ygjDmaLhreHbOaZ/p3
+    iUG1e8M8DooqKy+27SYv9Iw8lpGsnZhFSJ28kpx0oeH6bmWUWaoRW2IZAdaPCkQf
+    yOHN+9rCKIeSVOOfRlyshC+oGG3X3SoSRTZIJr1v+fc8/5BJVW5vLBGTmW9iTCUo
+    NWN6ClcieMa4QZyUrFu4FwtgoYs862eBdkGz1IB5YLJQnWlb08ySg5A7EYZ8MOs1
+    q+1mVlJt23sMQxmhmK+gTyp3L7/ep/64QXIHG10vbRI+u/yCAd5SvQ9kR5tAjp9B
+    OJRSqPdcEj/MTzkggwOy+CK3+fgNvfe6hE8SGxLn+BBYxplY1YB4gsnfLcwSLUPS
+    silCcJjZq1vQmUWdd+xCKnAOsjy+avLRYYJJSZkiHEdoG2eF67hbgtM6dtoNt2qk
+    dc/c1V9RG3+/xpT9ojgX3N/5C00FmH/zxlfVlG0v5zjeTPfhfzIYVKusMmkQfIjT
+    CtRIFKjE0Srt8BfThzojQGqiPE3EenJDHd9llWdQraXC07Cyv9l55xpwz8RsTa+y
+    ob8YXO1v3iCrNw7jfJwbyHMsFHc7wYHOeHO5iAV0wVA34CufCozRf5PJMdNjEPQP
+    QDkZsh2Kr8Xp6Qr9obpmpqHe3k+ZOKv7UPTmOvlYDoT362QZt4zPT/QD0/H8bg/9
+    GV4RDwW2H/r7ht5o9mLZW9Z8UJ+oLM1H/XUp9kVoAq4g8NedSQQ2tiL3Uja761eF
+    gVuz5W1fx6Ly/Lmo9laXG8rnVgifKpM0oRJquA/2Rv0wZ1e5b5xmX0Ck6Ze8qjbc
+    TOaei2PZK3grhCJ+8Cm9aCneV/0l6bVrrBIVH2EuuRPWzj5l0VtqmRGMZFKkXgu4
+    U83+Zi6aF9xdExhwykJvmwtCXPPnDT0G76itv+z+zQjSHNO9c3vGcWD9AMjuA/5B
+    HRCxKiQjfolZBHDRni+QwvARUWVZq5OMGXKAL69tow9Ku10uwR4IFAJsQoNK8qTW
+    6Q2xWdlVnVh4+ix3dYjQyEUvhi6/8xL3uAlM3IDyNTTQbA086H3yNPyZxt2k0+M3
+    xYCroOwRH9n3WVkW5LCPYnSEJsrnJoU/o6LQWhabPg00khTdsOxil9v5rghFz4l5
+    oWyieoaAvBdHvpulIQJlghADI5r5FGDWwUe/UxWx2lrybDDqNwMVmW0VdXk69k3n
+    gTiRTanyBO0XAOvgLf39YEYq1LnRK/vLh0rLRkrAsEwnmuvwEjuLo8bGjE6hkkxU
+    3qc0M4LueHUo4lmS9+SnhoiyjwvdZ4NmibrqQcXFrqkvqsC8VxYaPp4+6EDxgSCm
+    nldRJq4+mZeDYFJFHLUufgwzUEtu1A4u9SvUMety8/I=
+    =I+Zg
+    -----END PGP PUBLIC KEY BLOCK-----
+

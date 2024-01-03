@@ -1,0 +1,38 @@
+---
+kea:
+  description: KEA DHCP Server
+  source: 
+    Types: deb deb-src
+    URIs: https://dl.cloudsmith.io/public/isc/kea-2-1/deb/debian
+    Architectures: amd64 arm64 armel armhf
+    Suites: any-version
+    Components: main
+  policy: main
+  suites: 
+    - bullseye
+    - bookworm
+  gpg-key: |
+    -----BEGIN PGP PUBLIC KEY BLOCK-----
+    Version: GnuPG v2
+    
+    mQGNBGFDAPkBDAC2HRhVCb4iChPs16KHTz+B+Do0VMjefHd1m15H0/6FoPfK7zKm
+    WMfMGYZZQxSnzviaM9p6huf6sV2SHOt7M2otCB7W6o51oYMqYJQpC0/6iGVr6wVW
+    fXwPMlQRUSFJTtGixarqpSf+qb7OaF1mjmkcXf+zBMZxEltYOs4kKro1IRj6FuyH
+    BXDJmc+IR0uKn8OdLYj4806kjOgkdzfW0mAVixEFLQMJPYXNfa1Re6NKb10iB5pK
+    GZcdFcbldh++4Q7pgn3Zqdk55JChe1kAAJARnazTzADasnzgdEY8UOPGlBZEIgfx
+    Okr1vMWlni4CNNfjclRD1MsE9634tasE6HbSIxkgvWWgROwPB98cLCsE+muBlJLi
+    42V8EckoRbWKxrZ1SSLBeTfu1Xpzc3Ykc4PG4q44w0nhSR35tL2yvx1vCLrTE3WT
+    bsPpitIgcStlxEcaWlGDb6AFIe3apDE/0d+NTMb2t89/RihsGUkhw0vPH+9qdQoH
+    uBheSkkaFlD0oHUAEQEAAbQ4Q2xvdWRzbWl0aCBQYWNrYWdlIChpc2Mva2VhLTIt
+    MSkgPHN1cHBvcnRAY2xvdWRzbWl0aC5pbz6JAbcEEwEIACEFAmFDAPkCGy8FCwkI
+    BwMFFQoJCAsFFgIDAQACHgECF4AACgkQMtU+xIB+wQ6CtQv/YN9blp31HuZZ8cpF
+    GRzn/JiU6D+PG4j3+90KfFxR8bXofAyvRcU+yqzmoFWQ0VOoo+LEwzxP20N+U7ee
+    ozwPn+CTEwwbvm9rW1J6Jm6LGrQnt4NwD/WMqrZ70unoILpLKYBiITtcnfITyUFh
+    6vt3OYvCe6EPe7qga1/eNd/yVWLif1UTy1qUDGTpL0e+f7Mwn+K8o+x3R8j9n6+b
+    +1lC5iejI6KXW4su1IjRcYBFGpIiT7xOOdw/YIn4WDXbRG7c1rguxKuyNDlIOeRu
+    yfMqpTx7SVhgQQrp01mdJ+TOFR8yq4CzZRdDJZlGd57NlqRk8obof8Ze9QDuagDR
+    fPRSOufppJoRuChDVT7UId+V70OYHrsZ+1ji/cK6zM98hNru8uDc6yCPGN0cboic
+    D58YztJNooMdV/GoyIXT+yHiA63l+tfTApUHG23nkLMikmTl7JgRJJ6A3sEjp9HL
+    O3fTvbxyGR6TuO9+FeBW5eEux4BKOTyWKMsCZw2vMntGjbMw
+    =y1US
+    -----END PGP PUBLIC KEY BLOCK-----

@@ -1,0 +1,71 @@
+---
+openitcockpit:
+  description:  Enterprise approved open source infrastructure monitoring
+  source: 
+    Types: deb
+    URIs: https://packages.openitcockpit.io/openitcockpit/<SUITE>/stable
+    Suites: <SUITE>
+    Components: main
+    Architectures: amd64 i386 arm64 armhf
+  suites:
+  - buster
+  - bullseye
+
+  policy: main
+
+  contact: info@it-novum.com
+  bugs: https://github.com/it-novum/openITCOCKPIT/issues/new
+
+  gpg-key: |
+    -----BEGIN PGP PUBLIC KEY BLOCK-----
+
+    mQINBF5U4RYBEADrZMZI33kQFlN5MQfrkt6s9srJdqJGqAxFi2ylvNmF2yWeIqsw
+    hQGyeJSJuPMzMB5zQ2sL9CQTlH1WJC+j0E32tSRDTF3Z6xyWrXfIba8O/ksUPhpp
+    Jh0djK0GfsgcM3ht2bapPQTKRo4cCn46OptKG4eJALF2PsLzfLwXuRytVFREqk4j
+    sqzIObu2pE7aDGorOU1y4kKy6rgt/1Np8L+zvc1nPz8RNuRaZ+AaFHCrcc1U4bOR
+    Q/xSNayaiac1O19DHOyfqWAMFdWRwdXA5RNE3AxP39w1veJgfTzlStQxY94BCRGy
+    AkIsMAF3bEMeaUY+oswDKMWZ3f1OjYND8/HohtiJeVFDZgUwWpTskOgiB3ACW2h7
+    gFIY587NMGbudK/KvoC0qw68QM4s1Jie8r2PpVz0q5zzRVFU89uPCrSVvsRuFf41
+    KGLois+rfvQK4GcygG1zz9VdahahbuipWKzO2fHr5Ymf6z6/IzTteanWRG5zOJsm
+    LFTJEVM8IaAH3aJ+xMkxpf7oOjSU+rkJFPIjqIj48zutedXYlKf9+D7qUHR+01U3
+    d8g1gSUPO9bKFWoW21Wp3O8Z40Xh13E2GCAlBzHVzcOXshPY19TPqdbywxmdVMwa
+    UJmaucPsbnN46hzJgEUmzlkQytJQSm71vfXsfgXhyG3w8EtRLPmbuw5nvwARAQAB
+    tClpdC1ub3Z1bSBHbWJIIDxzdXBwb3J0QGl0c20uaXQtbm92dW0uY29tPokCVAQT
+    AQoAPhYhBJexNsvIWI3jUyp3bFuFEnXUY1ujBQJeVOEWAhsDBQklmAYABQsJCAcC
+    BhUKCQgLAgQWAgMBAh4BAheAAAoJEFuFEnXUY1ujTPwQAOYeVw3bnd6ek/2Boetw
+    TEvQZ5/tSPinaW3Jk3sb86PVSfwCq8fxxmgEetR1+tsMa4/JOaCQnqaBMOtKDMrv
+    /ncCnjXWW56AESsw7QDyX5t+IZ1/j8UTfThDqKwIjHo+9JT5uHvHf0aifFQIszLR
+    Ps39AjbWaEAlr7HX7c6V/H1yV05CbqvFSL4yrTFzUnabxhSoIafXQtvp58O6bso5
+    uaySQVEU2nzVWY/w0bm19lN35/7gAndTXievlSqrXRDbeu05gcYz4FaRm1b06GcT
+    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
+    HIut1UCE5ShFOdNZyp7hoMw=
+    =rRFl
+    -----END PGP PUBLIC KEY BLOCK-----
